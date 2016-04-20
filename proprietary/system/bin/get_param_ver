@@ -1,0 +1,9 @@
+#!/system/bin/sh
+log_ini_form_sys=/sys/devices/hi110x_power/ini_file_name
+log_ini_file=$(cat $log_ini_form_sys)
+if [[ -z $log_ini_file ]];then
+	cat /system/etc/hisi_cfg.ini|grep param_version
+else
+	cat $log_ini_file|grep param_version
+fi
+exit

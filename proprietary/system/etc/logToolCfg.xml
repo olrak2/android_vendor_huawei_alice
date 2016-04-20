@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--获取打包日志目录，该文件放在/data/hwlogdir/log_ctl/下-->
+<logtool_config>
+	<config type="wifi">
+	<!--cmd:为在打包前需要运行的命令-->
+		<cmd>hi110x_dump -s wifi -i logtool -p /data/hwlogdir/exception/wifi_except</cmd>
+	<!--打包的目录，目录下文件全打包-->
+		<folder>/sdcard/bugreports/</folder>
+		<folder>/data/dontpanic/</folder>
+		<folder>/data/system/dropbox/</folder>
+		<folder>/data/tombstones/</folder>
+		<folder>/data/anr/</folder>
+		<folder>/data/memdump/</folder>
+		<folder>/data/hwlogdir/exception/wifi_except/</folder>
+		<!--tcpdump的日志生成目录-->
+		<folder>/sdcard/tcpdump/</folder>
+	<!--文件，多个文件时根据关键字和数量进行过滤-->
+		<files keyword="wifi_log" number="24">/data/hwlogdir/wifi_log/</files>
+		<files keyword="kmsgcat-log" number="6">/data/android_logs/</files>
+		<files keyword="wakelocks-log" number="3">/data/android_logs/</files>
+		<files keyword="applogcat-log" number="12">/data/android_logs/</files>
+		<tarfiles keyword="kmsgcat-log" number="5">/data/android_logs/</tarfiles>
+		<tarfiles keyword="applogcat-log" number="5">/data/android_logs/</tarfiles>
+	<!--单个文件时只需要列出文件-->
+		<file>/storage/sdcard0/log/temp/bugreport.txt</file>	
+	</config>
+	<config type="bt">
+		<cmd>hi110x_dump -s bt -i logtool -p /data/hwlogdir/exception/bt_except</cmd>
+		<folder>/data/hwlogdir/exception/bt_except/</folder>
+		<folder>/sdcard/bugreports/</folder>
+		<folder>/data/memdump/</folder>
+		<folder>/data/dontpanic/</folder>
+		<folder>/data/system/dropbox/</folder>
+		<folder>/data/tombstones/</folder>
+		<folder>/data/anr/</folder>
+		<files keyword="bfg_log" number="24">/data/hwlogdir/bfg_log/</files>
+		<files keyword="applogcat-log" number="10">/data/android_logs/</files>
+		<files keyword="kmsgcat-log" number="4">/data/android_logs/</files> 
+		<files keyword="btsnoop_hci" number="10">/sdcard/</files> 
+		<tarfiles keyword="applogcat-log" number="4">/data/android_logs/</tarfiles>
+		<file>/storage/sdcard0/log/temp/bugreport.txt</file>	
+	</config>
+	<config type="fm">
+		<cmd>hi110x_dump -s bt -i logtool -p /data/hwlogdir/exception/bt_except</cmd>
+		<folder>/sdcard/bugreports/</folder>
+		<folder>/data/dontpanic/</folder>
+		<folder>/data/system/dropbox/</folder>
+		<folder>/data/hwlogdir/exception/bt_except/</folder>
+		<folder>/data/memdump/</folder>
+		<folder>/data/anr/</folder>
+		<folder>/data/tombstones/</folder>
+		<files keyword="bfg_log" number="24">/data/hwlogdir/bfg_log/</files>
+		<files keyword="applogcat-log" number="10">/data/android_logs/</files>
+		<files keyword="kmsgcat-log" number="4">/data/android_logs/</files>
+		<tarfiles keyword="applogcat-log" number="4">/data/android_logs/</tarfiles>
+		<file>/storage/sdcard0/log/temp/bugreport.txt</file>	
+	</config>	
+	<config type="gnss">
+		<cmd>hi110x_dump -s gnss -i logtool -p /data/hwlogdir/exception/gnss_except</cmd>	
+		<folder>/sdcard/bugreports/</folder>
+		<folder>/data/dontpanic/</folder>
+		<folder>/data/system/dropbox/</folder>
+		<folder>/data/tombstones/</folder>
+		<folder>/data/anr/</folder>
+		<folder>/data/memdump/</folder>
+		<folder>/data/hwlogdir/exception/gnss_except/</folder>
+		<folder>/data/hwlogdir/gnss_log/eph_alm/</folder>
+		<files keyword="bfg_log" number="24">/data/hwlogdir/bfg_log/</files>
+		<files keyword="DEVICE_" number="3">/data/hwlogdir/gnss_log/device/</files>
+		<files keyword="applogcat-log"  number="10">/data/android_logs/</files>
+		<files keyword="kmsgcat-log" number="4">/data/android_logs/</files>
+		<tarfiles keyword="applogcat-log" number="4">/data/android_logs/</tarfiles>
+		<file>/storage/sdcard0/log/temp/bugreport.txt</file>	
+	</config>
+	<config type="upgrade">
+		<folder>/data/dontpanic/</folder>
+		<folder>/data/system/dropbox/</folder>
+		<folder>/data/tombstones/</folder>
+		<folder>/data/anr/</folder>
+		<folder>/data/memdump/</folder>
+		<folder>/data/hwlogdir/exception_log/exception_wifi/</folder>
+		<folder>/splash2/</folder>
+		<files keyword="wifi_log" number="24">/data/hwlogdir/wifi_log/</files>
+		<files keyword="applogcat-log"  number="10">/data/android_logs/</files>
+		<files keyword="kmsgcat-log" number="4">/data/android_logs/</files>
+		<files keyword="wakelocks-log" number="4">/data/android_logs/</files>
+		<files keyword="charge-log" number="4">/data/android_logs/</files>
+		<files keyword="rillogcat-log" number="2">/data/android_logs/</files>
+		<file>/storage/sdcard0/log/temp/bugreport.txt</file>	
+	</config>
+	<config type="power">
+		<cmd>hi110x_dump -s wifi -i logtool -p /data/hwlogdir/exception/wifi_except</cmd>
+		<cmd>hi110x_dump -s bt -i logtool -p /data/hwlogdir/exception/bt_except</cmd>
+		<cmd>hi110x_dump -s fm -i logtool -p /data/hwlogdir/exception/fm_except</cmd>
+		<folder>/splash2/</folder>
+		<folder>/data/dontpanic/</folder>
+		<folder>/data/system/dropbox/</folder>
+		<folder>/data/tombstones/</folder>
+		<folder>/data/anr/</folder>
+		<folder>/data/memdump/</folder>
+		<folder>/data/hwlogdir/exception/wifi_except/</folder>
+		<folder>/data/hwlogdir/exception/bt_except/</folder>
+		<folder>/data/hwlogdir/exception/gnss_except/</folder>
+		<folder>/sdcard/tcpdump/</folder>
+		<folder>/data/powerlog</folder>
+		<folder>/sdcard/bugreports/</folder>
+		<folder>/sdcard/sleeplog/</folder>
+		<folder>/sdcard/LogService/8</folder>
+		<folder>/data/log/chargelog/</folder>
+		<folder>/sdcard/LogService/10</folder>
+		<folder>/sdcard/temperaturelog</folder>
+		<files keyword="bfg_log" number="24">/data/hwlogdir/bfg_log/</files>
+		<files keyword="wifi_log" number="24">/data/hwlogdir/wifi_log/</files>
+		<files keyword="applogcat-log" number="15">/data/android_logs/</files>
+		<files keyword="kmsgcat-log" number="8">/data/android_logs/</files>
+		<files keyword="wakelocks-log" number="5">/data/android_logs/</files>
+		<files keyword="charge-log" number="4">/data/android_logs/</files>
+		<files keyword="rillogcat-log" number="4">/data/android_logs/</files>
+		<tarfiles keyword="kmsgcat-log" number="4">/data/android_logs/</tarfiles>
+		<tarfiles keyword="applogcat-log" number="4">/data/android_logs/</tarfiles>
+		<file>/storage/sdcard0/log/temp/bugreport.txt</file>	
+	</config>
+</logtool_config>

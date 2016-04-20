@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2012 Huawei Inc.
+ * Cpu Freq Config
+ *
+    ////////////////////////////////cpufreq config////////////////////////////////
+    cpu_maxprofile             /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+        cpu_minprofile             /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+        note：
+        1.cpu_maxprofile means limit cpu max freq; cpu_minprofile means limit cpu min freq.
+        2.available config freq, please cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies.
+    ////////////////////////////////gpufreq config////////////////////////////////
+    gpu_maxprofile             /sys/class/devfreq/gpufreq/max_freq
+        gpu_minprofile             /sys/class/devfreq/gpufreq/min_freq
+        note：
+        1.gpu_maxprofile means limit gpu max freq; gpu_minprofile means limit gpu min freq.
+        2.available config freq, please cat /sys/class/devfreq/gpufreq/available_frequencies.
+    ////////////////////////////////ddrfreq config////////////////////////////////
+    ddr_maxprofile             /sys/class/devfreq/ddrfreq/max_freq
+        ddr_minprofile             /sys/class/devfreq/ddrfreq/min_freq
+        note：
+        1.ddr_maxprofile means limit ddr max freq; ddr_minprofile means limit ddr min freq.
+        2.available config freq, please cat /sys/class/devfreq/ddrfreq/available_frequencies.
+    ////////////////////////////////delay time config////////////////////////////////
+    delay_time         current scene delay to scaling freq.
+        note:
+        1. it means the delay time to excute cpu policy, time unit is ms.
+        note:
+        1. if policy item has not configured, it means close cpupolicy of previous scene.
+        2. policy type default value is 0, policy value default value is -1
+ -->
+<!--
+  default scene , id must be lower than 10000
+-->
+<cpu_policy version="1">
+  <!--don't config any policy-->
+  <scenemode name="default_front"
+             id="208"></scenemode>
+  <!--don't config any policy-->
+  <scenemode name="screen_off"
+             id="301">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+  </scenemode>
+  <!--don't config any policy-->
+  <scenemode name="start_webkit_canvas"
+             id="240"></scenemode>
+  <scenemode name="start_rotation"
+             id="238">
+    <cpu_minprofile>729000</cpu_minprofile>
+    <gpu_minprofile>250000000</gpu_minprofile>
+  </scenemode>
+  <scenemode name="start_speedup"
+             id="245">
+    <cpu_minprofile>1200000</cpu_minprofile>
+    <gpu_minprofile>500000000</gpu_minprofile>
+    <ddr_maxprofile>800000000</ddr_maxprofile>
+    <ddr_minprofile>800000000</ddr_minprofile>
+  </scenemode>
+  <!--
+            cust scene , id must be bigger than 10000
+        -->
+  <!--
+           Benckmark,  don't limit
+           ID:10000 for benchmark, don't change
+        -->
+  <scenemode name=".*?(benchmark|nbench|gpubench|droidbench|neocore|quicinc.vellamo|TDMarkMobile|nenamark|geekbench|smartbench|tdmm2v10jni|quadrant.ui|android.cm3|greenecomputing.linpack|jpct.bench|cfbench|membench|garret.bench|performance.test|hw.performance|glbenchmark|coremark|dmandroid|BasemarkX*?).*"
+             id="10000">
+    <cpu_minprofile>1200000</cpu_minprofile>
+    <gpu_minprofile>500000000</gpu_minprofile>
+  </scenemode>
+  <scenemode name="thermal_cpu"
+             id="251">
+    <cpu_maxprofile>-1</cpu_maxprofile>
+    <gpu_maxprofile>-1</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="battery_low"
+             id="319">
+    <cpu_maxprofile>729000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="battery_okay"
+             id="320"></scenemode>
+  <scenemode name="gallery_touch"
+             id="234">
+    <cpu_maxprofile>729000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="browser_front"
+             id="203">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+    <check_load_delay>25000</check_load_delay>
+    <check_load_mode>2</check_load_mode>
+  </scenemode>
+  <!--read eboot, like baidu ebook-->
+  <scenemode name="ebook_front"
+             id="205">
+    <cpu_maxprofile>729000</cpu_maxprofile>
+  </scenemode>
+  <scenemode name="gallery_front"
+             id="206">
+    <cpu_maxprofile>729000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="input_start"
+             id="210">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+  </scenemode>
+  <scenemode name="camera_front"
+             id="221">
+    <cpu_maxprofile>1200000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="game3d_front"
+             id="204">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+    <gpu_maxprofile>400000000</gpu_maxprofile>
+    <check_load_delay>30000</check_load_delay>
+    <check_load_mode>1</check_load_mode>
+    <delay_time>2000</delay_time> <!-- delay 2s-->
+  </scenemode>
+  <scenemode name="office_front"
+             id="225">
+    <cpu_maxprofile>432000</cpu_maxprofile>
+    <check_load_delay>15000</check_load_delay>
+    <check_load_mode>2</check_load_mode>
+  </scenemode>
+  <scenemode name="video_front"
+             id="228">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+  </scenemode>
+  <scenemode name="game2d_front"
+             id="233">
+    <cpu_maxprofile>729000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+    <delay_time>2000</delay_time> <!-- delay 2s-->
+  </scenemode>
+  <scenemode name="launcher_front"
+             id="230"></scenemode>
+  <scenemode name="mms_front"
+             id="235"></scenemode>
+  <scenemode name="launcher_touch"
+             id="236">
+    <cpu_minprofile>729000</cpu_minprofile>
+  </scenemode>
+  <scenemode name="video_start"
+             id="246">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+  </scenemode>
+  <scenemode name="cpu_draw_start"
+             id="265">
+  </scenemode>
+  <scenemode name="cpu_draw_end"
+             id="266">
+  </scenemode>
+  <!-- for popular map-->
+  <scenemode name="com.baidu.BaiduMap|com.mapbar.android.mapbarmap|com.autonavi.minimap|com.google.android.apps.maps|cld.navi.mainframe|com.google.android.street|com.sogou.map.android.maps|com.google.earth|cn.com.tiros.android.navidog|com.tencent.map|cn.com.tiros.android.navidog4x|com.j.locationalarm|com.uu.uunavi|com.cjq.wxmap|com.pdager.navi|hw.Guider|com.telenav.app.android.cmcc|menion.android.locus.pro|com.PaPaGOShanghai"
+             id="10001">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="com.*qmqj.*|com.Tianma.QiJi.*|com.vectorunit.red|com.vectorunit.bluesoco|com.kiloo.subwaysurf"
+             id="10017">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+    <gpu_maxprofile>400000000</gpu_maxprofile>
+    <delay_time>10000</delay_time> <!-- delay 10s-->
+  </scenemode>
+  <scenemode name="com.g2us.armedwarriors|org.cocos2dx.tests|com.yinhan.shenmo"
+             id="10016">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+  </scenemode>
+  <!-- crazy game, do nothing-->
+  <scenemode name="com.halfbrick.fruitninjahdB|com.imangi.templerun*|com.disney.TempleRunOz.goo|com.disney.troz|com.tencent.*|org.cocos2dx.FishingJoy2*|org.cocos2dx.FishGame"
+             id="10015">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+    <cpu_minprofile>729000</cpu_minprofile>
+  </scenemode>
+  <scenemode name="com.sohu.sohuvideo"
+             id="10003">
+  </scenemode>
+  <!-- for popular game-->
+  <scenemode name="com.aemobile.games.aemotor3d|com.webprancer.google.GarfieldsDiner|com.clius.realparking3d|com.disney.chukong.WMW|com.miniclip.pictorial|com.westriversw.CatWar|com.lemon.play.linecolor|com.coop_ox.beanbeanbang|com.sg.android.fish|com.happyelements.happyfish|com.haypi.dragon|org.funship.findsomething.withRK|com.qqgame.hlddz|com.sidheinteractive.sif.DR|com.ea.games.nfs13_na|com.gameloft.android.GAND.GloftAsphalt5.asphalt5|com.westriversw.RWS|com.carrot.carrotfantasy|com.popcap.pvz|com.paradoxplaza.imagicka|com.ckck.turbofly|com.gameloft.android.GAND.GloftSXHP|com.funship.findsomething|com.mykj.game.ddz|com.disney.chukong.WMW|com.carrot.carrotfantasy|com.rovio.angrybirdsstarwars.ads.iap|org.phoenix.nuhaikuangsha|com.tuyoo.doudizhu.main|com.xygame.wbjy|ly.pp.justpiano|com.ncgame.deadlyracing|com.sunspot.losttemplerun|com.boyaa.lordland.sina|com.og.danjiddz|com.disney.chukong.WMW|com.winter.moto|com.rubicon.dev.glwg |com.wistone.war2victory|com.joyreach.super_ship|com.pokercity.ddz| com.gamevil.plantswar.glo| com.youai.dreamonepiece.platform.anzhi|com.droidhen.game.racingmototer|com.sxiaoao.car3d2|com.LemengGame.guonen.LostTempleII|com.kunpo.baba91|com.rovio.angrybirdsspace.ads|com.qqgame.mic"
+             id="10005">
+    <cpu_maxprofile>729000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+    <delay_time>2000</delay_time> <!-- delay 2s-->
+  </scenemode>
+  <scenemode name="mms_and_input_front"
+             id="13001">
+  </scenemode>
+  <!-- for system browser, if not config, the system browser will use browser_front(id = 203)-->
+  <scenemode name="com.android.browser"
+             id="10004">
+    <cpu_maxprofile>960000</cpu_maxprofile>
+    <check_load_delay>15000</check_load_delay>
+    <check_load_mode>2</check_load_mode>
+  </scenemode>
+  <!-- for large power Application-->
+  <scenemode name="com.iyuba.VoaVideo"
+             id="10006">
+  <cpu_maxprofile>729000</cpu_maxprofile>
+  </scenemode>
+</cpu_policy>

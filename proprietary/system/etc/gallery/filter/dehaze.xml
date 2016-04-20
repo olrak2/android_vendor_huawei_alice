@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Config>  
+    <HazeRemoval>
+        <patchSize>15</patchSize>
+        <countsPercent>0.999</countsPercent>
+        <hazeFreeThresh>0.9999</hazeFreeThresh>
+        <alpha2>0.5</alpha2>
+        <alpha1>0.3</alpha1>
+        <coef>0.0 0.3 0.65 1.10 1.7 2.5</coef>
+    </HazeRemoval>
+</Config>

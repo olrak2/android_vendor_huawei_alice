@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MMITest>
+    <TestItem key="ro.mmi.tp_color_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.keypad_light_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.flash_CT_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.smartpa_calibratet_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.modem_audio_loop_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.NC_headset_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.hall_sensor_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.gsensor_calibrate_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.gyroscope_test" value="false"></TestItem>
+    <TestItem key="ro.mmi.otg_test" value="false"></TestItem>
+
+    <Factory>
+        <TestItem key="ro.mmi.sdcard_test" value="false"></TestItem>
+    </Factory>
+
+    <Properties key="ro.mmi.support_card_slot_share" value="true"/>
+    <Properties key="ro.mmi.support_double_flash" value="false"/>
+    <Properties key="ro.mmi.keypad_test_list" value="24,25,26"/> 
+    <Properties key="ro.mmi.wire_control_key_number" value="1"/>
+    <Properties key="ro.mmi.indicator_light_duration" value="1500"/>
+    <Properties key="ro.mmi.touch_screen_rows" value="24"/>
+    <Properties key="ro.mmi.touch_screen_columns" value="14"/>
+    <Properties key="ro.mmi.touch_screen_test_type" value="0"/>
+    <Properties key="mmi.keyboardtest.keynumber" value="3"/>
+    <Properties key="ro.mmi.support_camera_otp" value="true"/>
+    <Properties key="ro.mmi.support_slave_camera_otp" value="true"/>
+
+</MMITest>

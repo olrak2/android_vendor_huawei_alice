@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2012 Huawei Inc.
+ * Cpu Freq Config
+ *
+    ////////////////////////////////cpufreq config////////////////////////////////
+    cpu_maxprofile             /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+	cpu_minprofile             /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+	
+	note：
+	1.cpu_maxprofile means limit cpu max freq; cpu_minprofile means limit cpu min freq.
+	2.available config freq, please cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies.
+
+    ////////////////////////////////gpufreq config////////////////////////////////
+    gpu_maxprofile             /sys/class/devfreq/gpufreq/max_freq
+	gpu_minprofile             /sys/class/devfreq/gpufreq/min_freq
+	
+	note：
+	1.gpu_maxprofile means limit gpu max freq; gpu_minprofile means limit gpu min freq.
+	2.available config freq, please cat /sys/class/devfreq/gpufreq/available_frequencies.
+	
+    ////////////////////////////////ddrfreq config////////////////////////////////
+    ddr_maxprofile             /sys/class/devfreq/ddrfreq/max_freq
+	ddr_minprofile             /sys/class/devfreq/ddrfreq/min_freq
+	
+	note：
+	1.ddr_maxprofile means limit ddr max freq; ddr_minprofile means limit ddr min freq.
+	2.available config freq, please cat /sys/class/devfreq/ddrfreq/available_frequencies.	
+
+        note:
+        1. if policy item has not configured, it means close cpupolicy of previous scene.
+        2. policy type default value is 0, policy value default value is -1
+ -->
+<!--
+  default scene , id must be lower than 10000
+-->
+<cpu_policy version="1">
+  <!--don't config any policy-->
+  <scenemode name="default_front"
+             id="208"></scenemode>
+  <!--don't config any policy-->
+  <scenemode name="screen_off"
+             id="301"></scenemode>
+  <!--don't config any policy-->
+  <scenemode name="start_webkit_canvas"
+             id="240"></scenemode>
+  <scenemode name="start_rotation"
+             id="238">
+    <cpu_minprofile>729000</cpu_minprofile>
+    <gpu_minprofile>250000000</gpu_minprofile>
+  </scenemode>
+  <scenemode name="start_speedup"
+             id="245">
+    <cpu_minprofile>1200000</cpu_minprofile>
+    <gpu_minprofile>500000000</gpu_minprofile>
+  </scenemode>
+  <!--
+            cust scene , id must be bigger than 10000
+        -->
+  <!--
+           Benckmark,  don't limit
+           ID:10000 for benchmark, don't change
+        -->
+  <scenemode name=".*?(benchmark|nbench|gpubench|droidbench|neocore|quicinc.vellamo|TDMarkMobile|nenamark|geekbench|smartbench|tdmm2v10jni|quadrant.ui|android.cm3|greenecomputing.linpack|jpct.bench|cfbench|membench|garret.bench|performance.test|hw.performance|glbenchmark|coremark|dmandroid|BasemarkX*?).*"
+             id="10000">
+    <cpu_minprofile>1200000</cpu_minprofile>
+    <gpu_minprofile>500000000</gpu_minprofile>
+  </scenemode>
+  <scenemode name="thermal_cpu"
+             id="251">
+    <cpu_maxprofile>-1</cpu_maxprofile>
+    <gpu_maxprofile>-1</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="battery_low"
+             id="319">
+    <cpu_maxprofile>729000</cpu_maxprofile>
+    <gpu_maxprofile>250000000</gpu_maxprofile>
+  </scenemode>
+  <scenemode name="battery_okay"
+             id="320"></scenemode>
+</cpu_policy>
