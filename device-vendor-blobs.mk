@@ -14,9 +14,6 @@
 
 LOCAL_PATH := vendor/huawei/alice
 
-PRODUCT_PACKAGES += \
-	libion.huawei \
-	libGLES_mali
 
 # Surfaceflinger
 PRODUCT_COPY_FILES := \
@@ -75,18 +72,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/lib/libmedia.so:system/lib/libmedia.so \
 	$(LOCAL_PATH)/proprietary/system/lib64/libmedia.so:system/lib64/libmedia.so \
     $(LOCAL_PATH)/proprietary/system/lib/libearpa.so:system/lib/libearpa.so \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_ALICE_normal.xml:system/etc/audio/algorithm/algorithm_ALICE_normal.xml \
     $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml:system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_SHINE_normal.xml:system/etc/audio/algorithm/algorithm_SHINE_normal.xml \
     $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/ascend_algorithm_default.xml:system/etc/audio/algorithm/ascend_algorithm_default.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_ALICE_normal.xml:system/etc/audio/dts/dts_ALICE_normal.xml \
     $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_ALICEPA_normal.xml:system/etc/audio/dts/dts_ALICEPA_normal.xml \
     $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_default.xml:system/etc/audio/dts/dts_default.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_SHINE_normal.xml:system/etc/audio/dts/dts_SHINE_normal.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_ALICE_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICE_normal.xml \
     $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml \
     $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_default.xml:system/etc/audio/mbdrc/mbdrc_default.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_SHINE_normal.xml:system/etc/audio/mbdrc/mbdrc_SHINE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICEPA_normal.xml:system/etc/audio/modem/modem_ALICEPA_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_default.xml:system/etc/audio/modem/modem_default.xml \
     $(LOCAL_PATH)/proprietary/system/etc/hisi_omx.cfg:system/etc/hisi_omx.cfg \
 	$(LOCAL_PATH)/proprietary/system/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so \
 	$(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_ALICEPA.xml:system/etc/audio/hissc/mixer_paths_ALICEPA.xml \
@@ -97,7 +90,10 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/proprietary/system/dts/audio/hissc/dts_ALICEPA_normal.xml:system/etc/audio/dts/dts_ALICEPA_normal.xml \
 	$(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml \
 	$(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_ALICEPA_normal.xml:system/etc/audio/sws/sws_ALICEPA_normal.xml \
+	$(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_default.xml:system/etc/audio/sws/sws_default.xml \
 	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA.cnt:system/etc/audio/nxp/Tfa9895_ALICEPA.cnt \
+	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config:system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config \
+	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_default.cnt:system/etc/audio/nxp/Tfa9895_default.cnt \
 	$(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	$(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	$(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
@@ -159,13 +155,11 @@ PRODUCT_COPY_FILES += \
 # Misc
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/ons.bin:system/ons.bin \
-    $(LOCAL_PATH)/proprietary/system/lib/libion.huawei.so:system/lib/libion.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \
     $(LOCAL_PATH)/proprietary/system/lib/libnvme.so:system/lib/libnvme.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libion.huawei.so:system/lib64/libion.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libion.so:system/lib64/libion.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.hi6210sft.so:system/vendor/lib/hw/hwcomposer.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/hwcomposer.hi6210sft.so:system/vendor/lib64/hw/hwcomposer.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
     $(LOCAL_PATH)/proprietary/system/lib64/egl/libGLES_mali.so:system/lib64/egl/libGLES_mali.so \
     $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
@@ -177,8 +171,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/isp/isp.bin:system/isp/isp.bin \
     $(LOCAL_PATH)/proprietary/system/bin/gpslogd:system/bin/gpslogd \
     $(LOCAL_PATH)/proprietary/system/bin/thermal-daemon:system/bin/thermal-daemon \
+    $(LOCAL_PATH)/proprietary/system/etc/thermald.xml:system/etc/thermald.xml \
     $(LOCAL_PATH)/proprietary/system/bin/gpsdaemon:system/bin/gpsdaemon \
     $(LOCAL_PATH)/proprietary/system/bin/glgps:system/bin/glgps \
+    $(LOCAL_PATH)/proprietary/system/bin/gnss_engine:system/bin/gnss_engine \
     $(LOCAL_PATH)/proprietary/system/bin/atcmdserver:system/bin/atcmdserver \
     $(LOCAL_PATH)/proprietary/system/bin/hwnffserver:system/bin/hwnffserver \
     $(LOCAL_PATH)/proprietary/system/bin/hw_ueventd:system/bin/hw_ueventd \
@@ -214,8 +210,6 @@ $(LOCAL_PATH)/proprietary/system/lib/hw/libhisifm_if.so:system/lib/hw/libhisifm_
 $(LOCAL_PATH)/proprietary/system/lib64/hw/lights.default.so:system/lib64/hw/lights.default.so \
 $(LOCAL_PATH)/proprietary/system/lib/hw/lights.default.so:system/lib/hw/lights.default.so \
 $(LOCAL_PATH)/proprietary/system/lib64/hw/nfc_nci.pn54x.default.so:system/lib64/hw/nfc_nci.pn54x.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.default.so:system/lib/hw/hwcomposer.default.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/hwcomposer.default.so:system/lib64/hw/hwcomposer.default.so \
 $(LOCAL_PATH)/proprietary/system/lib/libhardware.so:system/lib/libhardware.so \
 $(LOCAL_PATH)/proprietary/system/lib64/libhardware.so:system/lib64/libhardware.so \
 $(LOCAL_PATH)/proprietary/system/lib/libbt_factory_test.so:system/lib/libbt_factory_test.so \
@@ -281,14 +275,10 @@ $(LOCAL_PATH)/proprietary/system/lib/hw/power.default.so:system/lib/hw/power.def
 $(LOCAL_PATH)/proprietary/system/lib64/hw/power.default.so:system/lib64/hw/power.default.so \
 $(LOCAL_PATH)/proprietary/system/lib/hw/sensors.hi6210sft.so:system/lib/hw/sensors.hi6210sft.so \
 $(LOCAL_PATH)/proprietary/system/lib64/hw/sensors.hi6210sft.so:system/lib64/hw/sensors.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so \
 $(LOCAL_PATH)/proprietary/system/lib/hw/memtrack.hi6210sft.so:system/lib/hw/memtrack.hi6210sft.so \
 $(LOCAL_PATH)/proprietary/system/lib64/hw/memtrack.hi6210sft.so:system/lib64/hw/memtrack.hi6210sft.so \
 $(LOCAL_PATH)/proprietary/system/lib/libhardware.so:system/lib/libhardware.so \
 $(LOCAL_PATH)/proprietary/system/lib64/libhardware.so:system/lib64/libhardware.so \
-$(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libion.so:system/lib64/libion.so \
 $(LOCAL_PATH)/proprietary/system/lib/libhardware_legacy.so:system/lib/libhardware_legacy.so \
 $(LOCAL_PATH)/proprietary/system/lib64/libhardware_legacy.so:system/lib64/libhardware_legacy.so \
 $(LOCAL_PATH)/proprietary/system/lib/libCameraHwCallBack.so:system/lib/libCameraHwCallBack.so \
