@@ -94,9 +94,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA.cnt:system/etc/audio/nxp/Tfa9895_ALICEPA.cnt \
 	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config:system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config \
 	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_default.cnt:system/etc/audio/nxp/Tfa9895_default.cnt \
-	$(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     $(LOCAL_PATH)/proprietary/system/lib/lib_k3_ffmpeg.so:system/lib/lib_k3_ffmpeg.so \
     $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_ffmpeg.so:system/lib64/lib_k3_ffmpeg.so \
     $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_avc.so:system/lib/lib_k3_omx_avc.so \
@@ -133,10 +130,20 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/proprietary/system/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi \
+	$(LOCAL_PATH)/proprietary/system/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
+	$(LOCAL_PATH)/proprietary/system/bin/hostapd_hisi:system/bin/hostapd_hisi \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_p2p_hw.bin:system/vendor/firmware/fw_bcm4343s_p2p_hw.bin \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin:system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin
+
+# Bluetooth
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts:system/etc/firmware/TIInit_11.8.32.bts \
+    $(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin:system/etc/firmware/wl18xx-fw-4.bin \
+	$(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts:system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts \
+    $(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin:system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin
 
 # HW modules
 PRODUCT_COPY_FILES += \
