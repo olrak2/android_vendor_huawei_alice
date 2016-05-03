@@ -136,8 +136,12 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_p2p_hw.bin:system/vendor/firmware/fw_bcm4343s_p2p_hw.bin \
-	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin:system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin
+	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin:system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin \
+	$(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram4343s_hw.txt:system/vendor/firmware/nvram4343s_hw.txt
 
+#	$(LOCAL_PATH)/proprietary/system/lib/libwpa_client.so:system/lib/libwpa_client.so \
+#	$(LOCAL_PATH)/proprietary/system/lib64/libwpa_client.so:system/lib64/libwpa_client.so
+	
 # Bluetooth
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts:system/etc/firmware/TIInit_11.8.32.bts \
@@ -171,10 +175,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/lib64/egl/libGLES_mali.so:system/lib64/egl/libGLES_mali.so \
     $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
     $(LOCAL_PATH)/proprietary/system/vendor/firmware/libpn547_fw.so:system/vendor/firmware/libpn547_fw.so \
-    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram4343s_hw.txt:system/vendor/firmware/nvram4343s_hw.txt \
-    $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin \
-    $(LOCAL_PATH)/proprietary/system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd:system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd \
-    $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin:system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin \
     $(LOCAL_PATH)/proprietary/system/isp/isp.bin:system/isp/isp.bin \
     $(LOCAL_PATH)/proprietary/system/bin/gpslogd:system/bin/gpslogd \
     $(LOCAL_PATH)/proprietary/system/bin/thermal-daemon:system/bin/thermal-daemon \
@@ -244,7 +244,6 @@ $(LOCAL_PATH)/proprietary/system/lib64/libOpenMAXAL.so:system/lib64/libOpenMAXAL
 $(LOCAL_PATH)/proprietary/system/lib64/libOpenSLES.so:system/lib64/libOpenSLES.so \
 $(LOCAL_PATH)/proprietary/system/lib64/libwifi_factory_test.so:system/lib64/libwifi_factory_test.so \
 $(LOCAL_PATH)/proprietary/system/lib64/libwifi_factory_test_hi110x.so:system/lib64/libwifi_factory_test_hi110x.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libwpa_client.so:system/lib64/libwpa_client.so \
 $(LOCAL_PATH)/proprietary/system/vendor/lib/libee_core.so:system/vendor/lib/libee_core.so \
 $(LOCAL_PATH)/proprietary/system/vendor/lib/libee_support.so:system/vendor/lib/libee_support.so \
 $(LOCAL_PATH)/proprietary/system/vendor/lib/libexticonv.so:system/vendor/lib/libexticonv.so \
@@ -311,8 +310,6 @@ $(LOCAL_PATH)/proprietary/system/lib/libgnuexif.so:system/lib/libgnuexif.so \
 $(LOCAL_PATH)/proprietary/system/lib64/libgnuexif.so:system/lib64/libgnuexif.so \
 $(LOCAL_PATH)/proprietary/system/lib/libservices.huawei.so:system/lib/libservices.huawei.so \
 $(LOCAL_PATH)/proprietary/system/lib64/libservices.huawei.so:system/lib64/libservices.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib/libwpa_client_hisi.so:system/lib/libwpa_client_hisi.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libwpa_client_hisi.so:system/lib64/libwpa_client_hisi.so \
 $(LOCAL_PATH)/proprietary/system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd:system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd \
 $(LOCAL_PATH)/proprietary/system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd:system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd \
 $(LOCAL_PATH)/proprietary/system/vendor/firmware/GNSS.bin:system/vendor/firmware/GNSS.bin \
