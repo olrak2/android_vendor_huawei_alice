@@ -131,7 +131,18 @@ PRODUCT_COPY_FILES += \
 # Wifi
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/proprietary/system/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi \
+	$(LOCAL_PATH)/proprietary/system/bin/netd:system/bin/netd \
+	$(LOCAL_PATH)/proprietary/system/bin/octty:system/bin/octty \
+	$(LOCAL_PATH)/proprietary/system/bin/oam_app:system/bin/oam_app \
+	$(LOCAL_PATH)/proprietary/system/bin/hisi_connectivity.sh:system/bin/hisi_connectivity.sh \
 	$(LOCAL_PATH)/proprietary/system/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
+	$(LOCAL_PATH)/proprietary/system/bin/hostapd_hisi:system/bin/hostapd_hisi \
+	$(LOCAL_PATH)/proprietary/system/bin/dhcpcd:system/bin/dhcpcd \
+	$(LOCAL_PATH)/proprietary/system/bin/gnss_engine:system/bin/gnss_engine \
+	$(LOCAL_PATH)/proprietary/system/bin/agnsscontrol:system/bin/agnsscontrol \
+	$(LOCAL_PATH)/proprietary/system/bin/supl20clientd:system/bin/supl20clientd \
+	$(LOCAL_PATH)/proprietary/system/bin/agnsslog:system/bin/agnsslog \
+	$(LOCAL_PATH)/proprietary/system/xbin/watchlssd:system/xbin/watchlssd \
 	$(LOCAL_PATH)/proprietary/system/bin/hostapd_hisi:system/bin/hostapd_hisi \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin \
 	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
@@ -143,11 +154,11 @@ PRODUCT_COPY_FILES += \
 #	$(LOCAL_PATH)/proprietary/system/lib64/libwpa_client.so:system/lib64/libwpa_client.so
 	
 # Bluetooth
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts:system/etc/firmware/TIInit_11.8.32.bts \
-    $(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin:system/etc/firmware/wl18xx-fw-4.bin \
-	$(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts:system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts \
-    $(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin:system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin
+#PRODUCT_COPY_FILES += \
+#	$(LOCAL_PATH)/proprietary/system/lib/hw/bluetooth.default.so:system/lib/hw/bluetooth.default.so
+#	$(LOCAL_PATH)/proprietary/system/lib/libbluetooth_jni.so:system/lib/libbluetooth_jni.so \
+#	$(LOCAL_PATH)/proprietary/system/lib/libbluetoothex_jni.so:system/lib/libbluetoothex_jni.so \
+#	$(LOCAL_PATH)/proprietary/system/lib64/libbluetoothex_jni.so:system/lib64/libbluetoothex_jni.so \
 
 # HW modules
 PRODUCT_COPY_FILES += \
@@ -208,7 +219,6 @@ $(LOCAL_PATH)/proprietary/system/sbin/teecd:system/bin/teecd
 PRODUCT_COPY_FILES += \
 $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omxcore.so:system/lib/lib_k3_omxcore.so \
 $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omxcore.so:system/lib64/lib_k3_omxcore.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/bluetooth.default.so:system/lib/hw/bluetooth.default.so \
 $(LOCAL_PATH)/proprietary/system/lib64/hw/bastet.hi6210sft.so:system/lib64/hw/bastet.hi6210sft.so \
 $(LOCAL_PATH)/proprietary/system/lib64/hw/libbcmfm_if.so:system/lib64/hw/libbcmfm_if.so \
 $(LOCAL_PATH)/proprietary/system/lib/hw/libbcmfm_if.so:system/lib/hw/libbcmfm_if.so \
@@ -359,9 +369,6 @@ $(LOCAL_PATH)/proprietary/system/lib/libavcodec.so:system/lib/libavcodec.so \
 $(LOCAL_PATH)/proprietary/system/lib/libavformat.so:system/lib/libavformat.so \
 $(LOCAL_PATH)/proprietary/system/lib/libavutil.so:system/lib/libavutil.so \
 $(LOCAL_PATH)/proprietary/system/lib/libBestShot.so:system/lib/libBestShot.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbluetoothex_jni.so:system/lib/libbluetoothex_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libbluetoothex_jni.so:system/lib64/libbluetoothex_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbluetooth_jni.so:system/lib/libbluetooth_jni.so \
 $(LOCAL_PATH)/proprietary/system/lib/libbreakpad.so:system/lib/libbreakpad.so \
 $(LOCAL_PATH)/proprietary/system/lib/libbspatchhwouc.so:system/lib/libbspatchhwouc.so \
 $(LOCAL_PATH)/proprietary/system/lib/libcamera_omron.so:system/lib/libcamera_omron.so \
