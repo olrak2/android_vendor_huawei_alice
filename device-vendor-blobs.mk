@@ -1,448 +1,661 @@
-# Copyright (C) 2015 The CyanogenMod Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
 LOCAL_PATH := vendor/huawei/alice
 
-
-# Surfaceflinger
-PRODUCT_COPY_FILES := \
-    $(LOCAL_PATH)/proprietary/system/lib/libhwaps.so:system/lib/libhwaps.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libhwaps.so:system/lib64/libhwaps.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_hwnsd_sf.so:system/lib/lib_hwnsd_sf.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_hwnsd_sf.so:system/lib64/lib_hwnsd_sf.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libsurfaceflinger.so:system/lib64/libsurfaceflinger.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libgui.so:system/lib/libgui.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libgui.so:system/lib64/libgui.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libui.so:system/lib/libui.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libui.so:system/lib64/libui.so
-
-# Media
+# bin files, overwrite the default builded ones
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/bin/mediaserver:system/bin/mediaserver \
-    $(LOCAL_PATH)/proprietary/system/lib/libaudioom.so:system/lib/libaudioom.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libaudioom.so:system/lib64/libaudioom.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libhuaweiaudioalgoservice.so:system/lib/libhuaweiaudioalgoservice.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libservices.huawei.so:system/lib64/libservices.huawei.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libservices.huawei.so:system/lib/libservices.huawei.so\
-    $(LOCAL_PATH)/proprietary/system/lib/libhuaweiprocessing.so:system/lib/libhuaweiprocessing.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libhuaweiaudioeffectutil.so:system/lib/libhuaweiaudioeffectutil.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libcameraservice.so:system/lib/libcameraservice.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libcameraservice.so:system/lib64/libcameraservice.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libCameraHwCallBack.so:system/lib/libCameraHwCallBack.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libCameraHwCallBack.so:system/lib64/libCameraHwCallBack.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libCameraHwParam.so:system/lib/libCameraHwParam.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libCameraHwParam.so:system/lib64/libCameraHwParam.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libCameraHwSendCmd.so:system/lib/libCameraHwSendCmd.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libCameraHwSendCmd.so:system/lib64/libCameraHwSendCmd.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libcamera_client.so:system/lib/libcamera_client.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libcamera_client.so:system/lib64/libcamera_client.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.a2dp.default.so:system/lib64/hw/audio.a2dp.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.primary.default.so:system/lib64/hw/audio.primary.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.hi6210sft.so:system/lib/hw/audio.primary.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.primary.hi6210sft.so:system/lib64/hw/audio.primary.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/audio_policy.default.so:system/lib/hw/audio_policy.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio_policy.default.so:system/lib64/hw/audio_policy.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libbalong_audio_ril.so:system/lib/libbalong_audio_ril.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libbalong_audio_ril.so:system/lib64/libbalong_audio_ril.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libtfa9895.so:system/lib/libtfa9895.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libtfa9895.so:system/lib64/libtfa9895.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libaudioflinger.huawei.so:system/lib/libaudioflinger.huawei.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libaudioroute.so:system/lib/libaudioroute.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libaudioroute.so:system/lib64/libaudioroute.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libmedia.so:system/lib/libmedia.so \
-	$(LOCAL_PATH)/proprietary/system/lib64/libmedia.so:system/lib64/libmedia.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libearpa.so:system/lib/libearpa.so \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml:system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/ascend_algorithm_default.xml:system/etc/audio/algorithm/ascend_algorithm_default.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_ALICEPA_normal.xml:system/etc/audio/dts/dts_ALICEPA_normal.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_default.xml:system/etc/audio/dts/dts_default.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_default.xml:system/etc/audio/mbdrc/mbdrc_default.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICEPA_normal.xml:system/etc/audio/modem/modem_ALICEPA_normal.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_default.xml:system/etc/audio/modem/modem_default.xml \
-    $(LOCAL_PATH)/proprietary/system/etc/hisi_omx.cfg:system/etc/hisi_omx.cfg \
-	$(LOCAL_PATH)/proprietary/system/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_ALICEPA.xml:system/etc/audio/hissc/mixer_paths_ALICEPA.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_ALICEPA.xml:system/etc/audio/hissc/pop_seq_ALICEPA.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_ALICEPA.xml:system/etc/audio/hissc/pop_seq_ALICEPA.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICE_normal.xml:system/etc/audio/modem/modem_ALICE_normal.xml \
-	$(LOCAL_PATH)/proprietary/system/dts/audio/hissc/dts_ALICEPA_normal.xml:system/etc/audio/dts/dts_ALICEPA_normal.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_ALICEPA_normal.xml:system/etc/audio/sws/sws_ALICEPA_normal.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_default.xml:system/etc/audio/sws/sws_default.xml \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA.cnt:system/etc/audio/nxp/Tfa9895_ALICEPA.cnt \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config:system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config \
-	$(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_default.cnt:system/etc/audio/nxp/Tfa9895_default.cnt \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_ffmpeg.so:system/lib/lib_k3_ffmpeg.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_ffmpeg.so:system/lib64/lib_k3_ffmpeg.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_avc.so:system/lib/lib_k3_omx_avc.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_avc.so:system/lib64/lib_k3_omx_avc.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_avcenc.so:system/lib/lib_k3_omx_avcenc.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_avcenc.so:system/lib64/lib_k3_omx_avcenc.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_mpeg2.so:system/lib/lib_k3_omx_mpeg2.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_mpeg2.so:system/lib64/lib_k3_omx_mpeg2.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_mpeg4.so:system/lib/lib_k3_omx_mpeg4.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_mpeg4.so:system/lib64/lib_k3_omx_mpeg4.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_rv.so:system/lib/lib_k3_omx_rv.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_rv.so:system/lib64/lib_k3_omx_rv.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_vc1.so:system/lib/lib_k3_omx_vc1.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_vc1.so:system/lib64/lib_k3_omx_vc1.so \
-    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_vp8.so:system/lib/lib_k3_omx_vp8.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_vp8.so:system/lib64/lib_k3_omx_vp8.so
-
-# Camera
+    $(LOCAL_PATH)/proprietary/system/bin/rild:system/bin/rild
+ 
+# bin files, don't excist in the builded ones from omni
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/camera.hi6210sft.so:system/lib64/hw/camera.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libcamera_core.so:system/lib/libcamera_core.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libgnuexif.so:system/lib/libgnuexif.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libgnuexif.so:system/lib64/libgnuexif.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libjpu.so:system/lib/libjpu.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libjpu.so:system/lib64/libjpu.so
-
-# Teec
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/proprietary/system/bin/teecd:system/bin/teecd \
-	$(LOCAL_PATH)/proprietary/system/lib/libteec.so:system/lib/libteec.so \
-	$(LOCAL_PATH)/proprietary/system/lib64/libteec.so:system/lib64/libteec.so
-
-# Wifi
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/proprietary/system/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi \
-	$(LOCAL_PATH)/proprietary/system/bin/netd:system/bin/netd \
-	$(LOCAL_PATH)/proprietary/system/bin/octty:system/bin/octty \
-	$(LOCAL_PATH)/proprietary/system/bin/oam_app:system/bin/oam_app \
-	$(LOCAL_PATH)/proprietary/system/bin/hisi_connectivity.sh:system/bin/hisi_connectivity.sh \
-	$(LOCAL_PATH)/proprietary/system/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
-	$(LOCAL_PATH)/proprietary/system/bin/hostapd_hisi:system/bin/hostapd_hisi \
-	$(LOCAL_PATH)/proprietary/system/bin/dhcpcd:system/bin/dhcpcd \
-	$(LOCAL_PATH)/proprietary/system/bin/gnss_engine:system/bin/gnss_engine \
-	$(LOCAL_PATH)/proprietary/system/bin/agnsscontrol:system/bin/agnsscontrol \
-	$(LOCAL_PATH)/proprietary/system/bin/supl20clientd:system/bin/supl20clientd \
-	$(LOCAL_PATH)/proprietary/system/bin/agnsslog:system/bin/agnsslog \
-	$(LOCAL_PATH)/proprietary/system/xbin/watchlssd:system/xbin/watchlssd \
-	$(LOCAL_PATH)/proprietary/system/bin/hostapd_hisi:system/bin/hostapd_hisi \
-	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin \
-	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
-	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_p2p_hw.bin:system/vendor/firmware/fw_bcm4343s_p2p_hw.bin \
-	$(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin:system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin \
-	$(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram4343s_hw.txt:system/vendor/firmware/nvram4343s_hw.txt
-
-#	$(LOCAL_PATH)/proprietary/system/lib/libwpa_client.so:system/lib/libwpa_client.so \
-#	$(LOCAL_PATH)/proprietary/system/lib64/libwpa_client.so:system/lib64/libwpa_client.so
-	
-# Bluetooth
-#PRODUCT_COPY_FILES += \
-#	$(LOCAL_PATH)/proprietary/system/lib/hw/bluetooth.default.so:system/lib/hw/bluetooth.default.so
-#	$(LOCAL_PATH)/proprietary/system/lib/libbluetooth_jni.so:system/lib/libbluetooth_jni.so \
-#	$(LOCAL_PATH)/proprietary/system/lib/libbluetoothex_jni.so:system/lib/libbluetoothex_jni.so \
-#	$(LOCAL_PATH)/proprietary/system/lib64/libbluetoothex_jni.so:system/lib64/libbluetoothex_jni.so \
-
-# HW modules
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi6210sft.so:system/lib64/hw/gps.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/gps.hi110x.default.so:system/lib/hw/gps.hi110x.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi110x.default.so:system/lib64/hw/gps.hi110x.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/keystore.hi6210sft.so:system/lib/hw/keystore.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/keystore.hi6210sft.so:system/lib64/hw/keystore.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/memtrack.hi6210sft.so:system/lib/hw/memtrack.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/memtrack.hi6210sft.so:system/lib64/hw/memtrack.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/power.default.so:system/lib/hw/power.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/power.default.so:system/lib64/hw/power.default.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/sensors.hi6210sft.so:system/lib/hw/sensors.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/sensors.hi6210sft.so:system/lib64/hw/sensors.hi6210sft.so
-
-# Misc
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/system/ons.bin:system/ons.bin \
-    $(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \
-    $(LOCAL_PATH)/proprietary/system/lib/libnvme.so:system/lib/libnvme.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/libion.so:system/lib64/libion.so \
-    $(LOCAL_PATH)/proprietary/system/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/hw/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so \
-    $(LOCAL_PATH)/proprietary/system/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
-    $(LOCAL_PATH)/proprietary/system/lib64/egl/libGLES_mali.so:system/lib64/egl/libGLES_mali.so \
-    $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
-    $(LOCAL_PATH)/proprietary/system/vendor/firmware/libpn547_fw.so:system/vendor/firmware/libpn547_fw.so \
-    $(LOCAL_PATH)/proprietary/system/isp/isp.bin:system/isp/isp.bin \
-    $(LOCAL_PATH)/proprietary/system/bin/gpslogd:system/bin/gpslogd \
-    $(LOCAL_PATH)/proprietary/system/bin/thermal-daemon:system/bin/thermal-daemon \
-    $(LOCAL_PATH)/proprietary/system/etc/thermald.xml:system/etc/thermald.xml \
-    $(LOCAL_PATH)/proprietary/system/bin/gpsdaemon:system/bin/gpsdaemon \
+    $(LOCAL_PATH)/proprietary/system/bin/agnsscontrol:system/bin/agnsscontrol \
+    $(LOCAL_PATH)/proprietary/system/bin/agnsslog:system/bin/agnsslog \
+    $(LOCAL_PATH)/proprietary/system/bin/atcmdserver:system/bin/atcmdserver \
+    $(LOCAL_PATH)/proprietary/system/bin/device_monitor:system/bin/device_monitor \
     $(LOCAL_PATH)/proprietary/system/bin/glgps:system/bin/glgps \
     $(LOCAL_PATH)/proprietary/system/bin/gnss_engine:system/bin/gnss_engine \
-    $(LOCAL_PATH)/proprietary/system/bin/atcmdserver:system/bin/atcmdserver \
-    $(LOCAL_PATH)/proprietary/system/bin/hwnffserver:system/bin/hwnffserver \
-    $(LOCAL_PATH)/proprietary/system/bin/hw_ueventd:system/bin/hw_ueventd \
-    $(LOCAL_PATH)/proprietary/system/bin/mac_addr_normalization:system/bin/mac_addr_normalization \
-    $(LOCAL_PATH)/proprietary/system/bin/device_monitor:system/bin/device_monitor \
-    $(LOCAL_PATH)/proprietary/system/bin/hwpged:system/bin/hwpged \
-    $(LOCAL_PATH)/proprietary/system/bin/hwnff:system/bin/hwnff \
-    $(LOCAL_PATH)/proprietary/system/bin/rild:system/bin/rild \
+    $(LOCAL_PATH)/proprietary/system/bin/gnss_engine:system/bin/gnss_engine \
+    $(LOCAL_PATH)/proprietary/system/bin/gpsdaemon:system/bin/gpsdaemon \
+    $(LOCAL_PATH)/proprietary/system/bin/gpslogd:system/bin/gpslogd \
     $(LOCAL_PATH)/proprietary/system/bin/hdb:system/bin/hdb \
+    $(LOCAL_PATH)/proprietary/system/bin/hisi_connectivity.sh:system/bin/hisi_connectivity.sh \
+    $(LOCAL_PATH)/proprietary/system/bin/hostapd_hisi:system/bin/hostapd_hisi \
+    $(LOCAL_PATH)/proprietary/system/bin/hw_ueventd:system/bin/hw_ueventd \
+    $(LOCAL_PATH)/proprietary/system/bin/hwnff:system/bin/hwnff \
+    $(LOCAL_PATH)/proprietary/system/bin/hwnffserver:system/bin/hwnffserver \
+    $(LOCAL_PATH)/proprietary/system/bin/hwpged:system/bin/hwpged \
+    $(LOCAL_PATH)/proprietary/system/bin/mac_addr_normalization:system/bin/mac_addr_normalization \
+    $(LOCAL_PATH)/proprietary/system/bin/oam_app:system/bin/oam_app \
+    $(LOCAL_PATH)/proprietary/system/bin/octty:system/bin/octty \
+    $(LOCAL_PATH)/proprietary/system/bin/supl20clientd:system/bin/supl20clientd \
+    $(LOCAL_PATH)/proprietary/system/bin/teecd:system/bin/teecd \
+    $(LOCAL_PATH)/proprietary/system/bin/thermal-daemon:system/bin/thermal-daemon \
+    $(LOCAL_PATH)/proprietary/system/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
+    $(LOCAL_PATH)/proprietary/system/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi \
+    $(LOCAL_PATH)/proprietary/system/sbin/oeminfo_nvm_server:system/bin/oeminfo_nvm_server
+
+# misc files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/ons.bin:system/ons.bin \
+    $(LOCAL_PATH)/proprietary/system/isp/isp.bin:system/isp.bin
+
+# Lib and Lib64 (testing only for the moment !!!)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.default.so:system/lib/hw/hwcomposer.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.hi6210sft.so:system/lib/hw/hwcomposer.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/hwcomposer.default.so:system/lib64/hw/hwcomposer.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/hwcomposer.hi6210sft.so:system/lib64/hw/hwcomposer.hi6210sft.so
+
+# Lib or lib64 files, overwrite the default builded ones
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib/libstagefright.so:system/lib/libstagefright.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libstagefright.so:system/lib64/libstagefright.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudioutils.so:system/lib/libaudioutils.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaudioutils.so:system/lib64/libaudioutils.so
+
+# Lib files, overwrite the default builded ones from honor 6
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/audio_policy.default.so:system/lib/hw/audio_policy.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/power.default.so:system/lib/hw/power.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcamera_client.so:system/lib/libcamera_client.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcameraservice.so:system/lib/libcameraservice.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libgui.so:system/lib/libgui.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libmedia.so:system/lib/libmedia.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libui.so:system/lib/libui.so
+
+# Libs, don't excist in the builded ones from omni from honor 6
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.hi6210sft.so:system/lib/hw/audio.primary.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/gps.hi110x.default.so:system/lib/hw/gps.hi110x.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/keystore.hi6210sft.so:system/lib/hw/keystore.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/memtrack.hi6210sft.so:system/lib/hw/memtrack.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/sensors.hi6210sft.so:system/lib/hw/sensors.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libCameraHwCallBack.so:system/lib/libCameraHwCallBack.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libCameraHwParam.so:system/lib/libCameraHwParam.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libCameraHwSendCmd.so:system/lib/libCameraHwSendCmd.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_hwnsd_sf.so:system/lib/lib_hwnsd_sf.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_ffmpeg.so:system/lib/lib_k3_ffmpeg.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_avc.so:system/lib/lib_k3_omx_avc.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_avcenc.so:system/lib/lib_k3_omx_avcenc.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_mpeg2.so:system/lib/lib_k3_omx_mpeg2.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_mpeg4.so:system/lib/lib_k3_omx_mpeg4.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_rv.so:system/lib/lib_k3_omx_rv.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_vc1.so:system/lib/lib_k3_omx_vc1.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omx_vp8.so:system/lib/lib_k3_omx_vp8.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudioflinger.huawei.so:system/lib/libaudioflinger.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudioom.so:system/lib/libaudioom.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudioroute.so:system/lib/libaudioroute.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libbalong_audio_ril.so:system/lib/libbalong_audio_ril.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcamera_core.so:system/lib/libcamera_core.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libearpa.so:system/lib/libearpa.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libgnuexif.so:system/lib/libgnuexif.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhuaweiaudioalgoservice.so:system/lib/libhuaweiaudioalgoservice.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhuaweiaudioeffectutil.so:system/lib/libhuaweiaudioeffectutil.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhuaweiprocessing.so:system/lib/libhuaweiprocessing.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhwaps.so:system/lib/libhwaps.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libjpu.so:system/lib/libjpu.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libnvme.so:system/lib/libnvme.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libservices.huawei.so:system/lib/libservices.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libteec.so:system/lib/libteec.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libtfa9895.so:system/lib/libtfa9895.so
+
+# libs, don't excist in the builded ones from omni (other maybe not needed)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib/cp_if.so:system/lib/cp_if.so \
+    $(LOCAL_PATH)/proprietary/system/lib/drm/libdrmhwomavoneplugin.so:system/lib/drm/libdrmhwomavoneplugin.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/libbcmfm_if.so:system/lib/hw/libbcmfm_if.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/libhisifm_if.so:system/lib/hw/libhisifm_if.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/lights.default.so:system/lib/hw/lights.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/imedia_filters.so:system/lib/imedia_filters.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libBestShot.so:system/lib/libBestShot.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_atprotocolsw.so:system/lib/lib_atprotocolsw.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_hwnsd_input.so:system/lib/lib_hwnsd_input.so \
+    $(LOCAL_PATH)/proprietary/system/lib/lib_k3_omxcore.so:system/lib/lib_k3_omxcore.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libadc_old_sdk.so:system/lib/libadc_old_sdk.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaes.so:system/lib/libaes.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libagnssal.so:system/lib/libagnssal.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libairsharing_platform.so:system/lib/libairsharing_platform.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libatpswdck.so:system/lib/libatpswdck.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudio-resampler.so:system/lib/libaudio-resampler.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libaudioalgoservice_jni.so:system/lib/libaudioalgoservice_jni.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libavcodec.so:system/lib/libavcodec.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libavformat.so:system/lib/libavformat.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libavutil.so:system/lib/libavutil.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libbalong-ril-1.so:system/lib/libbalong-ril-1.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libbalong-ril.so:system/lib/libbalong-ril.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libbreakpad.so:system/lib/libbreakpad.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libbspatchhwouc.so:system/lib/libbspatchhwouc.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libbt_factory_test.so:system/lib/libbt_factory_test.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libbt_factory_test_hi110x.so:system/lib/libbt_factory_test_hi110x.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcamera_omron.so:system/lib/libcamera_omron.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcamera_post_mediaserver.so:system/lib/libcamera_post_mediaserver.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcares.so:system/lib/libcares.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcgroup.so:system/lib/libcgroup.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libchrlog.so:system/lib/libchrlog.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libcontactsmatchname.so:system/lib/libcontactsmatchname.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfb.so:system/lib/libfb.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfb_cpucapabilities.so:system/lib/libfb_cpucapabilities.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfb_creativeediting.so:system/lib/libfb_creativeediting.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfb_crypto.so:system/lib/libfb_crypto.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfb_dalvik-internals.so:system/lib/libfb_dalvik-internals.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfb_ffmpeg.so:system/lib/libfb_ffmpeg.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfb_ffmpeg_jni.so:system/lib/libfb_ffmpeg_jni.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfm_interface.so:system/lib/libfm_interface.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfm_jni.so:system/lib/libfm_jni.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libfm_volume.so:system/lib/libfm_volume.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libgnssadapter.so:system/lib/libgnssadapter.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhardware_legacy_bcm.so:system/lib/libhardware_legacy_bcm.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhardware_legacy_hisi.so:system/lib/libhardware_legacy_hisi.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhelixplayer.so:system/lib/libhelixplayer.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhisi_efuse.so:system/lib/libhisi_efuse.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhisi_ini.so:system/lib/libhisi_ini.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhwdeviceinfo.so:system/lib/libhwdeviceinfo.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libhwextdevice.so:system/lib/libhwextdevice.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libmax98925.so:system/lib/libmax98925.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libmedia_jni.huawei.so:system/lib/libmedia_jni.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libmediarecorder.huawei.so:system/lib/libmediarecorder.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libnfc-nci.so:system/lib/libnfc-nci.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libnfc_nci_jni.so:system/lib/libnfc_nci_jni.so \
+    $(LOCAL_PATH)/proprietary/system/lib/liboeminfo.so:system/lib/liboeminfo.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libpowergenie_native3.so:system/lib/libpowergenie_native3.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsensorsgps.so:system/lib/libsensorsgps.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsqlite3.so:system/lib/libsqlite3.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libstagefright.huawei.so:system/lib/libstagefright.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libstagefright_soft_ffmpegaudiodec.so:system/lib/libstagefright_soft_ffmpegaudiodec.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libstagefright_soft_ffmpegvideodec.so:system/lib/libstagefright_soft_ffmpegvideodec.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl10client.so:system/lib/libsupl10client.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20client.so:system/lib/libsupl20client.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20comon.so:system/lib/libsupl20comon.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20if.so:system/lib/libsupl20if.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1comn.so:system/lib/libsupl20oasn1comn.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1lpp.so:system/lib/libsupl20oasn1lpp.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1rrc.so:system/lib/libsupl20oasn1rrc.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1rrlp.so:system/lib/libsupl20oasn1rrlp.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1supl1.so:system/lib/libsupl20oasn1supl1.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1supl2.so:system/lib/libsupl20oasn1supl2.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1tia.so:system/lib/libsupl20oasn1tia.so \
+    $(LOCAL_PATH)/proprietary/system/lib/libwifipro.so:system/lib/libwifipro.so
+
+# Lib64 files, overwrite the default builded ones from honor 6
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.a2dp.default.so:system/lib64/hw/audio.a2dp.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.primary.default.so:system/lib64/hw/audio.primary.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio_policy.default.so:system/lib64/hw/audio_policy.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/power.default.so:system/lib64/hw/power.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libcamera_client.so:system/lib64/libcamera_client.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libcameraservice.so:system/lib64/libcameraservice.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libgui.so:system/lib64/libgui.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libmedia.so:system/lib64/libmedia.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libsurfaceflinger.so:system/lib64/libsurfaceflinger.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libui.so:system/lib64/libui.so
+
+# Libs, don't excist in the builded ones from omni from honor 6
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib64/egl/libGLES_mali.so:system/lib64/egl/libGLES_mali.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/audio.primary.hi6210sft.so:system/lib64/hw/audio.primary.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/camera.hi6210sft.so:system/lib64/hw/camera.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi110x.default.so:system/lib64/hw/gps.hi110x.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi6210sft.so:system/lib64/hw/gps.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/keystore.hi6210sft.so:system/lib64/hw/keystore.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/memtrack.hi6210sft.so:system/lib64/hw/memtrack.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/sensors.hi6210sft.so:system/lib64/hw/sensors.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libCameraHwCallBack.so:system/lib64/libCameraHwCallBack.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libCameraHwParam.so:system/lib64/libCameraHwParam.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libCameraHwSendCmd.so:system/lib64/libCameraHwSendCmd.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_hwnsd_sf.so:system/lib64/lib_hwnsd_sf.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_ffmpeg.so:system/lib64/lib_k3_ffmpeg.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_avc.so:system/lib64/lib_k3_omx_avc.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_avcenc.so:system/lib64/lib_k3_omx_avcenc.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_mpeg2.so:system/lib64/lib_k3_omx_mpeg2.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_mpeg4.so:system/lib64/lib_k3_omx_mpeg4.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_rv.so:system/lib64/lib_k3_omx_rv.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_vc1.so:system/lib64/lib_k3_omx_vc1.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omx_vp8.so:system/lib64/lib_k3_omx_vp8.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaudioom.so:system/lib64/libaudioom.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaudioroute.so:system/lib64/libaudioroute.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libbalong_audio_ril.so:system/lib64/libbalong_audio_ril.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libgnuexif.so:system/lib64/libgnuexif.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libhwaps.so:system/lib64/libhwaps.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libion.so:system/lib64/libion.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libjpu.so:system/lib64/libjpu.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libservices.huawei.so:system/lib64/libservices.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libteec.so:system/lib64/libteec.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libtfa9895.so:system/lib64/libtfa9895.so
+
+# libs, don't excist in the builded ones from omni (other maybe not needed)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/bastet.hi6210sft.so:system/lib64/hw/bastet.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/libbcmfm_if.so:system/lib64/hw/libbcmfm_if.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/libhisifm_if.so:system/lib64/hw/libhisifm_if.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/lights.default.so:system/lib64/hw/lights.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/nfc_nci.pn54x.default.so:system/lib64/hw/nfc_nci.pn54x.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_hwnsd_input.so:system/lib64/lib_hwnsd_input.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omxcore.so:system/lib64/lib_k3_omxcore.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaes.so:system/lib64/libaes.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libagnssal.so:system/lib64/libagnssal.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaudio-resampler.so:system/lib64/libaudio-resampler.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaudio_custom.so:system/lib64/libaudio_custom.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libaudioalgoservice_jni.so:system/lib64/libaudioalgoservice_jni.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libbalong-ril-1.so:system/lib64/libbalong-ril-1.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libbalong-ril.so:system/lib64/libbalong-ril.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libbastet.so:system/lib64/libbastet.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libbt_factory_test.so:system/lib64/libbt_factory_test.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libbt_factory_test_hi110x.so:system/lib64/libbt_factory_test_hi110x.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libchrlog.so:system/lib64/libchrlog.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libconn_factory_test.so:system/lib64/libconn_factory_test.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libfm_hal.so:system/lib64/libfm_hal.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libfm_interface.so:system/lib64/libfm_interface.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libfm_jni.so:system/lib64/libfm_jni.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libfm_volume.so:system/lib64/libfm_volume.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libgnssadapter.so:system/lib64/libgnssadapter.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libgps_factory_test.so:system/lib64/libgps_factory_test.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libgps_factory_test_hi110x.so:system/lib64/libgps_factory_test_hi110x.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libhardware_legacy_bcm.so:system/lib64/libhardware_legacy_bcm.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libhardware_legacy_hisi.so:system/lib64/libhardware_legacy_hisi.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libhisi_efuse.so:system/lib64/libhisi_efuse.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libhisi_ini.so:system/lib64/libhisi_ini.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libhuawei_mmi_test.so:system/lib64/libhuawei_mmi_test.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libmax98925.so:system/lib64/libmax98925.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libmedia_jni.huawei.so:system/lib64/libmedia_jni.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libmediarecorder.huawei.so:system/lib64/libmediarecorder.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libmtp.huawei.so:system/lib64/libmtp.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libnfc-nci.so:system/lib64/libnfc-nci.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libnfc_nci_jni.so:system/lib64/libnfc_nci_jni.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/liboeminfo.so:system/lib64/liboeminfo.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libpowergenie_native3.so:system/lib64/libpowergenie_native3.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libstagefright.huawei.so:system/lib64/libstagefright.huawei.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libstagefright_soft_ffmpegaudiodec.so:system/lib64/libstagefright_soft_ffmpegaudiodec.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libstagefright_soft_ffmpegvideodec.so:system/lib64/libstagefright_soft_ffmpegvideodec.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libstagefrighthw.so:system/lib64/libstagefrighthw.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libwifi_factory_test.so:system/lib64/libwifi_factory_test.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libwifi_factory_test_hi110x.so:system/lib64/libwifi_factory_test_hi110x.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/libwifipro.so:system/lib64/libwifipro.so
+
+# Copying all files from from etc and vendor (probably not all needed but to make sure everything works)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/system/etc/Falcon.out:system/etc/Falcon.out \
+    $(LOCAL_PATH)/proprietary/system/etc/HwResourceManager.xml:system/etc/HwResourceManager.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/apns-conf.xml:system/etc/apns-conf.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml:system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_ALICE_normal.xml:system/etc/audio/algorithm/algorithm_ALICE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_CHERRYPLUSGLOBAL_normal.xml:system/etc/audio/algorithm/algorithm_CHERRYPLUSGLOBAL_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_CHERRYPLUS_normal.xml:system/etc/audio/algorithm/algorithm_CHERRYPLUS_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_CHERRYPRO_normal.xml:system/etc/audio/algorithm/algorithm_CHERRYPRO_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/algorithm_SHINE_normal.xml:system/etc/audio/algorithm/algorithm_SHINE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/algorithm/ascend_algorithm_default.xml:system/etc/audio/algorithm/ascend_algorithm_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_ALICEPA_normal.xml:system/etc/audio/dts/dts_ALICEPA_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_ALICE_normal.xml:system/etc/audio/dts/dts_ALICE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_CHERRYPLUSGLOBAL_normal.xml:system/etc/audio/dts/dts_CHERRYPLUSGLOBAL_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_CHERRYPLUS_normal.xml:system/etc/audio/dts/dts_CHERRYPLUS_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_CHERRYPRO_normal.xml:system/etc/audio/dts/dts_CHERRYPRO_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_SHINE_normal.xml:system/etc/audio/dts/dts_SHINE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/dts/dts_default.xml:system/etc/audio/dts/dts_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_ALICE.xml:system/etc/audio/hissc/mixer_paths_ALICE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_ALICEPA.xml:system/etc/audio/hissc/mixer_paths_ALICEPA.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_CHERRYPLUS.xml:system/etc/audio/hissc/mixer_paths_CHERRYPLUS.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_CHERRYPLUSGLOBAL.xml:system/etc/audio/hissc/mixer_paths_CHERRYPLUSGLOBAL.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_CHERRYPRO.xml:system/etc/audio/hissc/mixer_paths_CHERRYPRO.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_SHINE.xml:system/etc/audio/hissc/mixer_paths_SHINE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_paths_default.xml:system/etc/audio/hissc/mixer_paths_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICEPA_ce.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_ce.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICEPA_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICEPA_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICEPA_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICE_ce.xml:system/etc/audio/hissc/mixer_volumes_ALICE_ce.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICE_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_ALICE_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICE_normal.xml:system/etc/audio/hissc/mixer_volumes_ALICE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICE_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICE_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_ALICE_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICE_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_ce.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_ce.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_normal.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUSGLOBAL_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_ce.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_ce.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_normal.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPLUS_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPRO_ce.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPRO_ce.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPRO_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPRO_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPRO_normal.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPRO_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPRO_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPRO_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_CHERRYPRO_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_CHERRYPRO_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_SHINE_ce.xml:system/etc/audio/hissc/mixer_volumes_SHINE_ce.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_SHINE_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_SHINE_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_SHINE_normal.xml:system/etc/audio/hissc/mixer_volumes_SHINE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_SHINE_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_SHINE_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_SHINE_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_SHINE_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/mixer_volumes_default.xml:system/etc/audio/hissc/mixer_volumes_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_ALICE.xml:system/etc/audio/hissc/pop_seq_ALICE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_ALICEPA.xml:system/etc/audio/hissc/pop_seq_ALICEPA.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_CHERRYPLUS.xml:system/etc/audio/hissc/pop_seq_CHERRYPLUS.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_CHERRYPLUSGLOBAL.xml:system/etc/audio/hissc/pop_seq_CHERRYPLUSGLOBAL.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_CHERRYPRO.xml:system/etc/audio/hissc/pop_seq_CHERRYPRO.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_SHINE.xml:system/etc/audio/hissc/pop_seq_SHINE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/hissc/pop_seq_default.xml:system/etc/audio/hissc/pop_seq_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_ALICE_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_CHERRYPLUSGLOBAL_normal.xml:system/etc/audio/mbdrc/mbdrc_CHERRYPLUSGLOBAL_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_CHERRYPLUS_normal.xml:system/etc/audio/mbdrc/mbdrc_CHERRYPLUS_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_CHERRYPRO_normal.xml:system/etc/audio/mbdrc/mbdrc_CHERRYPRO_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_SHINE_normal.xml:system/etc/audio/mbdrc/mbdrc_SHINE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/mbdrc/mbdrc_default.xml:system/etc/audio/mbdrc/mbdrc_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICEPA_cmcciot.xml:system/etc/audio/modem/modem_ALICEPA_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICEPA_normal.xml:system/etc/audio/modem/modem_ALICEPA_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICEPA_telecomiot.xml:system/etc/audio/modem/modem_ALICEPA_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICEPA_unicomiot.xml:system/etc/audio/modem/modem_ALICEPA_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICE_cmcciot.xml:system/etc/audio/modem/modem_ALICE_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICE_normal.xml:system/etc/audio/modem/modem_ALICE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICE_telecomiot.xml:system/etc/audio/modem/modem_ALICE_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_ALICE_unicomiot.xml:system/etc/audio/modem/modem_ALICE_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_cmcciot.xml:system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_normal.xml:system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_telecomiot.xml:system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_unicomiot.xml:system/etc/audio/modem/modem_CHERRYPLUSGLOBAL_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUS_cmcciot.xml:system/etc/audio/modem/modem_CHERRYPLUS_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUS_normal.xml:system/etc/audio/modem/modem_CHERRYPLUS_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUS_telecomiot.xml:system/etc/audio/modem/modem_CHERRYPLUS_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPLUS_unicomiot.xml:system/etc/audio/modem/modem_CHERRYPLUS_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPRO_cmcciot.xml:system/etc/audio/modem/modem_CHERRYPRO_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPRO_normal.xml:system/etc/audio/modem/modem_CHERRYPRO_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPRO_telecomiot.xml:system/etc/audio/modem/modem_CHERRYPRO_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_CHERRYPRO_unicomiot.xml:system/etc/audio/modem/modem_CHERRYPRO_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_SHINE_cmcciot.xml:system/etc/audio/modem/modem_SHINE_cmcciot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_SHINE_normal.xml:system/etc/audio/modem/modem_SHINE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_SHINE_telecomiot.xml:system/etc/audio/modem/modem_SHINE_telecomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_SHINE_unicomiot.xml:system/etc/audio/modem/modem_SHINE_unicomiot.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/modem/modem_default.xml:system/etc/audio/modem/modem_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA.cnt:system/etc/audio/nxp/Tfa9895_ALICEPA.cnt \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config:system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/nxp/Tfa9895_default.cnt:system/etc/audio/nxp/Tfa9895_default.cnt \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_ALICEPA_normal.xml:system/etc/audio/sws/sws_ALICEPA_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_ALICE_normal.xml:system/etc/audio/sws/sws_ALICE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_CHERRYPLUSGLOBAL_normal.xml:system/etc/audio/sws/sws_CHERRYPLUSGLOBAL_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_CHERRYPLUS_normal.xml:system/etc/audio/sws/sws_CHERRYPLUS_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_CHERRYPRO_normal.xml:system/etc/audio/sws/sws_CHERRYPRO_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_SHINE_normal.xml:system/etc/audio/sws/sws_SHINE_normal.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio/sws/sws_default.xml:system/etc/audio/sws/sws_default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/audio_effects.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/benchmar_app.xml:system/etc/benchmar_app.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/default/cm_correction.dat:system/etc/camera/davinci/default/cm_correction.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/default/cm_foliage.dat:system/etc/camera/davinci/default/cm_foliage.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/default/cm_normal.dat:system/etc/camera/davinci/default/cm_normal.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/default/cm_sky.dat:system/etc/camera/davinci/default/cm_sky.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/default/cm_sunset.dat:system/etc/camera/davinci/default/cm_sunset.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/default/imgproc.xml:system/etc/camera/davinci/default/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/device.config:system/etc/camera/davinci/device.config \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov13850/imgproc.xml:system/etc/camera/davinci/ov13850/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov13850/multiframe.xml:system/etc/camera/davinci/ov13850/multiframe.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov13850_ofilm/imgproc.xml:system/etc/camera/davinci/ov13850_ofilm/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov13850_ofilm/multiframe.xml:system/etc/camera/davinci/ov13850_ofilm/multiframe.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov5648_foxconn/imgproc.xml:system/etc/camera/davinci/ov5648_foxconn/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov5648_ofilm/imgproc.xml:system/etc/camera/davinci/ov5648_ofilm/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov5648_sunny/imgproc.xml:system/etc/camera/davinci/ov5648_sunny/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/ov8830/imgproc.xml:system/etc/camera/davinci/ov8830/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/s5k4e1ga_foxconn/cm_foliage.dat:system/etc/camera/davinci/s5k4e1ga_foxconn/cm_foliage.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/s5k4e1ga_foxconn/imgproc.xml:system/etc/camera/davinci/s5k4e1ga_foxconn/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/s5k4e1ga_sunny/imgproc.xml:system/etc/camera/davinci/s5k4e1ga_sunny/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/s5k4e1gx_foxconn/imgproc.xml:system/etc/camera/davinci/s5k4e1gx_foxconn/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/sonyimx328_sunny/imgproc.xml:system/etc/camera/davinci/sonyimx328_sunny/imgproc.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/davinci/sonyimx328_sunny/multiframe.xml:system/etc/camera/davinci/sonyimx328_sunny/multiframe.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/filter/filter.xml:system/etc/camera/filter/filter.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/filter/mixIm.dat:system/etc/camera/filter/mixIm.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/multidenoise/default/multiframe.xml:system/etc/camera/multidenoise/default/multiframe.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/multidenoise/device.config:system/etc/camera/multidenoise/device.config \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/multidenoise/multidenoise.xml:system/etc/camera/multidenoise/multidenoise.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/multidenoise/ov13850/multiframe.xml:system/etc/camera/multidenoise/ov13850/multiframe.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/multidenoise/ov13850_ofilm/multiframe.xml:system/etc/camera/multidenoise/ov13850_ofilm/multiframe.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/multidenoise/sonyimx328_sunny/multiframe.xml:system/etc/camera/multidenoise/sonyimx328_sunny/multiframe.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/device.config:system/etc/camera/smartae/device.config \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/ov13850/SmartAE.xml:system/etc/camera/smartae/ov13850/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/ov13850_ofilm/SmartAE.xml:system/etc/camera/smartae/ov13850_ofilm/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/ov5648_foxconn/SmartAE.xml:system/etc/camera/smartae/ov5648_foxconn/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/ov5648_ofilm/SmartAE.xml:system/etc/camera/smartae/ov5648_ofilm/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/ov5648_sunny/SmartAE.xml:system/etc/camera/smartae/ov5648_sunny/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/s5k4e1ga_foxconn/SmartAE.xml:system/etc/camera/smartae/s5k4e1ga_foxconn/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/s5k4e1ga_sunny/SmartAE.xml:system/etc/camera/smartae/s5k4e1ga_sunny/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/s5k4e1gx_foxconn/SmartAE.xml:system/etc/camera/smartae/s5k4e1gx_foxconn/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/smartae/sonyimx328_sunny/SmartAE.xml:system/etc/camera/smartae/sonyimx328_sunny/SmartAE.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/device.config:system/etc/camera/soft3aconfig/device.config \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/ov13850/soft3Aconfig.xml:system/etc/camera/soft3aconfig/ov13850/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/ov13850_ofilm/soft3Aconfig.xml:system/etc/camera/soft3aconfig/ov13850_ofilm/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/ov5648_foxconn/soft3Aconfig.xml:system/etc/camera/soft3aconfig/ov5648_foxconn/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/ov5648_ofilm/soft3Aconfig.xml:system/etc/camera/soft3aconfig/ov5648_ofilm/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/ov5648_sunny/soft3Aconfig.xml:system/etc/camera/soft3aconfig/ov5648_sunny/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/s5k4e1ga_foxconn/soft3Aconfig.xml:system/etc/camera/soft3aconfig/s5k4e1ga_foxconn/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/s5k4e1ga_sunny/soft3Aconfig.xml:system/etc/camera/soft3aconfig/s5k4e1ga_sunny/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/s5k4e1gx_foxconn/soft3Aconfig.xml:system/etc/camera/soft3aconfig/s5k4e1gx_foxconn/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/soft3aconfig/sonyimx328_sunny/soft3Aconfig.xml:system/etc/camera/soft3aconfig/sonyimx328_sunny/soft3Aconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/FoliageMinMaxTOA.txt:system/etc/camera/tornado/FoliageMinMaxTOA.txt \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/FoliageModelTOA.model:system/etc/camera/tornado/FoliageModelTOA.model \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/NightMinMaxTOA.txt:system/etc/camera/tornado/NightMinMaxTOA.txt \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/NightModelTOA.model:system/etc/camera/tornado/NightModelTOA.model \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/SunsetMinMaxTOA.txt:system/etc/camera/tornado/SunsetMinMaxTOA.txt \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/SunsetModelTOA.model:system/etc/camera/tornado/SunsetModelTOA.model \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/TornadoI.ini:system/etc/camera/tornado/TornadoI.ini \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/ov13850/TornadoI.ini:system/etc/camera/tornado/ov13850/TornadoI.ini \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/ov13850_ofilm/TornadoI.ini:system/etc/camera/tornado/ov13850_ofilm/TornadoI.ini \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tornado/sonyimx328_sunny/TornadoI.ini:system/etc/camera/tornado/sonyimx328_sunny/TornadoI.ini \
+    $(LOCAL_PATH)/proprietary/system/etc/camera/tracking/targettracking.xml:system/etc/camera/tracking/targettracking.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/camera_orientation.cfg:system/etc/camera_orientation.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/camera_resolutions.cfg:system/etc/camera_resolutions.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/camera_videosnapshot.cfg:system/etc/camera_videosnapshot.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/clatd.conf:system/etc/clatd.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/core4_sys_load_policy.xml:system/etc/core4_sys_load_policy.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/device_state_monitor.conf:system/etc/device_state_monitor.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/dexopt/shell_identify_and_oat_clean.xml:system/etc/dexopt/shell_identify_and_oat_clean.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/dhcpcd/dhcpcd-hooks/20-dns.conf:system/etc/dhcpcd/dhcpcd-hooks/20-dns.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/dhcpcd/dhcpcd-hooks/95-configured:system/etc/dhcpcd/dhcpcd-hooks/95-configured \
+    $(LOCAL_PATH)/proprietary/system/etc/dhcpcd/dhcpcd-run-hooks:system/etc/dhcpcd/dhcpcd-run-hooks \
+    $(LOCAL_PATH)/proprietary/system/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/attached0.dtscs:system/etc/dts/attached0.dtscs \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/attached1.dtscs:system/etc/dts/attached1.dtscs \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/bluetooth0.dtscs:system/etc/dts/bluetooth0.dtscs \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/combo0.dtscs:system/etc/dts/combo0.dtscs \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/configurator.cfg:system/etc/dts/configurator.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/dts-m6m8-lic.key:system/etc/dts/dts-m6m8-lic.key \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/eagle-lic.key:system/etc/dts/eagle-lic.key \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/lineout0.dtscs:system/etc/dts/lineout0.dtscs \
+    $(LOCAL_PATH)/proprietary/system/etc/dts/other.dtscs:system/etc/dts/other.dtscs \
+    $(LOCAL_PATH)/proprietary/system/etc/event-log-tags:system/etc/event-log-tags \
+    $(LOCAL_PATH)/proprietary/system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_1.dat:system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_1.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_11.dat:system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_11.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_12.dat:system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_12.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_Weight.dat:system/etc/facerecognition/face_detect_classifiers/CAMERA_HAAR_Weight.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/facerecognition/face_detect_classifiers/CAMERA_LAB_1.dat:system/etc/facerecognition/face_detect_classifiers/CAMERA_LAB_1.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/facerecognition/face_detect_classifiers/CAMERA_LAB_11.dat:system/etc/facerecognition/face_detect_classifiers/CAMERA_LAB_11.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/facerecognition/face_detect_classifiers/CAMERA_LAB_12.dat:system/etc/facerecognition/face_detect_classifiers/CAMERA_LAB_12.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/factory_modem.cfg:system/etc/factory_modem.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/fallback_fonts.xml:system/etc/fallback_fonts.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/firmware/TIInit_11.8.32.bts:system/etc/firmware/TIInit_11.8.32.bts \
+    $(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts:system/etc/firmware/ti-connectivity/TIInit_11.8.32.bts \
+    $(LOCAL_PATH)/proprietary/system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin:system/etc/firmware/ti-connectivity/wl18xx-fw-4.bin \
+    $(LOCAL_PATH)/proprietary/system/etc/fonts.xml:system/etc/fonts.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/gallery/filter/dehaze.xml:system/etc/gallery/filter/dehaze.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/globalAutoAdapt-conf.xml:system/etc/globalAutoAdapt-conf.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/globalMatchs-conf.xml:system/etc/globalMatchs-conf.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/gnss/HiSilicon.p12:system/etc/gnss/HiSilicon.p12 \
+    $(LOCAL_PATH)/proprietary/system/etc/gnss/config/SUPLConfigParams.xml:system/etc/gnss/config/SUPLConfigParams.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/gnss/config/gnssconfig.xml:system/etc/gnss/config/gnssconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/gnss/lacrnc/index.bin:system/etc/gnss/lacrnc/index.bin \
+    $(LOCAL_PATH)/proprietary/system/etc/gnss/lacrnc/lacrnc.bin:system/etc/gnss/lacrnc/lacrnc.bin \
+    $(LOCAL_PATH)/proprietary/system/etc/gnss/lacrnc/mccmnc.bin:system/etc/gnss/lacrnc/mccmnc.bin \
+    $(LOCAL_PATH)/proprietary/system/etc/gnss/lss.conf:system/etc/gnss/lss.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/goldeneye_config.xml:system/etc/goldeneye_config.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/gpsconfig.xml:system/etc/gpsconfig.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/gpsconfig_beta.xml:system/etc/gpsconfig_beta.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/hisi_cfg.ini:system/etc/hisi_cfg.ini \
+    $(LOCAL_PATH)/proprietary/system/etc/hisi_cfg_alice.ini:system/etc/hisi_cfg_alice.ini \
+    $(LOCAL_PATH)/proprietary/system/etc/hisi_cfg_cherry.ini:system/etc/hisi_cfg_cherry.ini \
+    $(LOCAL_PATH)/proprietary/system/etc/hisi_omx.cfg:system/etc/hisi_omx.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/install-recovery.sh:system/etc/install-recovery.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/jankbdcfg.json:system/etc/jankbdcfg.json \
+    $(LOCAL_PATH)/proprietary/system/etc/jankcfg.json:system/etc/jankcfg.json \
+    $(LOCAL_PATH)/proprietary/system/etc/kerneldump.sh:system/etc/kerneldump.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/libnfc-brcm-alice.conf:system/etc/libnfc-brcm-alice.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/libnfc-nxp-alice.conf:system/etc/libnfc-nxp-alice.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/log/android_panic.sh:system/etc/log/android_panic.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/audio_dump.sh:system/etc/log/audio_dump.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/clean_log.sh:system/etc/log/clean_log.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/crash_notice.sh:system/etc/log/crash_notice.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/dontpanic.sh:system/etc/log/dontpanic.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/hifi_freeze.sh:system/etc/log/hifi_freeze.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/mcu_exception.sh:system/etc/log/mcu_exception.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/modem_exception.sh:system/etc/log/modem_exception.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/pmu_reboot.sh:system/etc/log/pmu_reboot.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/prepare_dir.sh:system/etc/log/prepare_dir.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/reboot_history_write.sh:system/etc/log/reboot_history_write.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/thermal_reboot.sh:system/etc/log/thermal_reboot.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/log/wdg_rstlog_save.sh:system/etc/log/wdg_rstlog_save.sh \
+    $(LOCAL_PATH)/proprietary/system/etc/logToolCfg.xml:system/etc/logToolCfg.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/ALICE_TL00.xml:system/etc/manufacture/ALICE_TL00.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/ALICE_TL02.xml:system/etc/manufacture/ALICE_TL02.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/ALICE_TL21.xml:system/etc/manufacture/ALICE_TL21.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/ALICE_TL23.xml:system/etc/manufacture/ALICE_TL23.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/ALICE_UL00.xml:system/etc/manufacture/ALICE_UL00.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/cherry.xml:system/etc/manufacture/cherry.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/chm.xml:system/etc/manufacture/chm.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/manufacture/default.xml:system/etc/manufacture/default.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/mkshrc:system/etc/mkshrc \
+    $(LOCAL_PATH)/proprietary/system/etc/mobilevideocfg.xml:system/etc/mobilevideocfg.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/modemConfig/balong/FieldTest.cfg:system/etc/modemConfig/balong/FieldTest.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/modemConfig/balong/basic_name:system/etc/modemConfig/balong/basic_name \
     $(LOCAL_PATH)/proprietary/system/etc/modemConfig/hids_ue_msg.cfg:system/etc/modemConfig/hids_ue_msg.cfg \
     $(LOCAL_PATH)/proprietary/system/etc/modemConfig/hua.cfg:system/etc/modemConfig/hua.cfg \
-    $(LOCAL_PATH)/proprietary/system/etc/srs/srs_processing.cfg:system/etc/srs/srs_processing.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/normal_cpu_policy.xml:system/etc/normal_cpu_policy.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/performance_cpu_policy.xml:system/etc/performance_cpu_policy.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/ppp/ip-up-vpn:system/etc/ppp/ip-up-vpn \
+    $(LOCAL_PATH)/proprietary/system/etc/preferred-apps/google.xml:system/etc/preferred-apps/google.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/preloaded-classes:system/etc/preloaded-classes \
+    $(LOCAL_PATH)/proprietary/system/etc/reader.conf:system/etc/reader.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/recovery-resource.dat:system/etc/recovery-resource.dat \
+    $(LOCAL_PATH)/proprietary/system/etc/sepolicy.recovery:system/etc/sepolicy.recovery \
     $(LOCAL_PATH)/proprietary/system/etc/srs/models.txt:system/etc/srs/models.txt \
-    $(LOCAL_PATH)/proprietary/system/etc/srs/srsmodels.lic:system/etc/srs/srsmodels.lic
-
-#extra stuff to test
-PRODUCT_COPY_FILES += \
-$(LOCAL_PATH)/proprietary/system/sbin/oeminfo_nvm_server:system/bin/oeminfo_nvm_server \
-$(LOCAL_PATH)/proprietary/system/sbin/e2fsck_s:system/bin/e2fsck_s \
-$(LOCAL_PATH)/proprietary/system/sbin/teecd:system/bin/teecd
-
-
-#extra (temporary) stuff to make bootable from XePeleato (thx)
-PRODUCT_COPY_FILES += \
-$(LOCAL_PATH)/proprietary/system/lib/lib_k3_omxcore.so:system/lib/lib_k3_omxcore.so \
-$(LOCAL_PATH)/proprietary/system/lib64/lib_k3_omxcore.so:system/lib64/lib_k3_omxcore.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/bastet.hi6210sft.so:system/lib64/hw/bastet.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/libbcmfm_if.so:system/lib64/hw/libbcmfm_if.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/libbcmfm_if.so:system/lib/hw/libbcmfm_if.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/libhisifm_if.so:system/lib64/hw/libhisifm_if.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/libhisifm_if.so:system/lib/hw/libhisifm_if.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/lights.default.so:system/lib64/hw/lights.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/lights.default.so:system/lib/hw/lights.default.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/nfc_nci.pn54x.default.so:system/lib64/hw/nfc_nci.pn54x.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhardware.so:system/lib/libhardware.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhardware.so:system/lib64/libhardware.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbt_factory_test.so:system/lib/libbt_factory_test.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libbt_factory_test.so:system/lib64/libbt_factory_test.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbt_factory_test_hi110x.so:system/lib/libbt_factory_test_hi110x.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libbt_factory_test_hi110x.so:system/lib64/libbt_factory_test_hi110x.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libconn_factory_test.so:system/lib64/libconn_factory_test.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libfm_hal.so:system/lib64/libfm_hal.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libfm_interface.so:system/lib64/libfm_interface.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libfm_jni.so:system/lib64/libfm_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libfm_volume.so:system/lib64/libfm_volume.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libgps_factory_test.so:system/lib64/libgps_factory_test.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libgps_factory_test_hi110x.so:system/lib64/libgps_factory_test_hi110x.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhardware_legacy_bcm.so:system/lib64/libhardware_legacy_bcm.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhardware_legacy_hisi.so:system/lib64/libhardware_legacy_hisi.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhuawei_mmi_test.so:system/lib64/libhuawei_mmi_test.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libmedia_jni.huawei.so:system/lib64/libmedia_jni.huawei.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libmtp.huawei.so:system/lib64/libmtp.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libnfc-nci.so:system/lib64/libnfc-nci.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libnfc_nci_jni.so:system/lib64/libnfc_nci_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libnfc_ndef.so:system/lib64/libnfc_ndef.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libOpenMAXAL.so:system/lib64/libOpenMAXAL.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libOpenSLES.so:system/lib64/libOpenSLES.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libwifi_factory_test.so:system/lib64/libwifi_factory_test.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libwifi_factory_test_hi110x.so:system/lib64/libwifi_factory_test_hi110x.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libee_core.so:system/vendor/lib/libee_core.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libee_support.so:system/vendor/lib/libee_support.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libexticonv.so:system/vendor/lib/libexticonv.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libposclientcore.so:system/vendor/lib/libposclientcore.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libslpgw-single.so:system/vendor/lib/libslpgw-single.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libstlport_shared_rtti.so:system/vendor/lib/libstlport_shared_rtti.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libsupl.so:system/vendor/lib/libsupl.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so \
-$(LOCAL_PATH)/proprietary/system/vendor/framework/com.huawei.audioalgo.jar:system/vendor/framework/com.huawei.audioalgo.jar \
-$(LOCAL_PATH)/proprietary/system/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-$(LOCAL_PATH)/proprietary/system/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd \
-$(LOCAL_PATH)/proprietary/system/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcameraservice.so:system/lib/libcameraservice.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libcameraservice.so:system/lib64/libcameraservice.so \
-$(LOCAL_PATH)/proprietary/system/lib/drm/libdrmhwomavoneplugin.so:system/lib/drm/libdrmhwomavoneplugin.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/audio.a2dp.default.so:system/lib64/hw/audio.a2dp.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/audio.primary.default.so:system/lib64/hw/audio.primary.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.hi6210sft.so:system/lib/hw/audio.primary.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/audio.primary.hi6210sft.so:system/lib64/hw/audio.primary.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/camera.hi6210sft.so:system/lib64/hw/camera.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/keystore.hi6210sft.so:system/lib/hw/keystore.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/keystore.hi6210sft.so:system/lib64/hw/keystore.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi6210sft.so:system/lib64/hw/gps.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/gps.hi110x.default.so:system/lib/hw/gps.hi110x.default.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi110x.default.so:system/lib64/hw/gps.hi110x.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/power.default.so:system/lib/hw/power.default.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/power.default.so:system/lib64/hw/power.default.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/sensors.hi6210sft.so:system/lib/hw/sensors.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/sensors.hi6210sft.so:system/lib64/hw/sensors.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib/hw/memtrack.hi6210sft.so:system/lib/hw/memtrack.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib64/hw/memtrack.hi6210sft.so:system/lib64/hw/memtrack.hi6210sft.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhardware.so:system/lib/libhardware.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhardware.so:system/lib64/libhardware.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhardware_legacy.so:system/lib/libhardware_legacy.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhardware_legacy.so:system/lib64/libhardware_legacy.so \
-$(LOCAL_PATH)/proprietary/system/lib/libCameraHwCallBack.so:system/lib/libCameraHwCallBack.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libCameraHwCallBack.so:system/lib64/libCameraHwCallBack.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudioom.so:system/lib/libaudioom.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libaudioom.so:system/lib64/libaudioom.so \
-$(LOCAL_PATH)/proprietary/system/lib/libril.so:system/lib/libril.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libril.so:system/lib64/libril.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbalong-ril.so:system/lib/libbalong-ril.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libbalong-ril.so:system/lib64/libbalong-ril.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbalong-ril-1.so:system/lib/libbalong-ril-1.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libbalong-ril-1.so:system/lib64/libbalong-ril-1.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbalong_audio_ril.so:system/lib/libbalong_audio_ril.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libbalong_audio_ril.so:system/lib64/libbalong_audio_ril.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcamera_client.so:system/lib/libcamera_client.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libcamera_client.so:system/lib64/libcamera_client.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcamera_core.so:system/lib/libcamera_core.so \
-$(LOCAL_PATH)/proprietary/system/lib/libCameraHwParam.so:system/lib/libCameraHwParam.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libCameraHwParam.so:system/lib64/libCameraHwParam.so \
-$(LOCAL_PATH)/proprietary/system/lib/libCameraHwSendCmd.so:system/lib/libCameraHwSendCmd.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libCameraHwSendCmd.so:system/lib64/libCameraHwSendCmd.so \
-$(LOCAL_PATH)/proprietary/system/lib/libgnuexif.so:system/lib/libgnuexif.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libgnuexif.so:system/lib64/libgnuexif.so \
-$(LOCAL_PATH)/proprietary/system/lib/libservices.huawei.so:system/lib/libservices.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libservices.huawei.so:system/lib64/libservices.huawei.so \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd:system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd:system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/GNSS.bin:system/vendor/firmware/GNSS.bin \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/libpn547_fw.so:system/vendor/firmware/libpn547_fw.so \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram4343s_hw.txt:system/vendor/firmware/nvram4343s_hw.txt \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/sdio_cfg:system/vendor/firmware/sdio_cfg \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_CMP.bin:system/vendor/firmware/SDIO_CMP.bin \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_COD.bin:system/vendor/firmware/SDIO_COD.bin \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW.bin:system/vendor/firmware/SDIO_RW.bin \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_ALICE_TL00_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL00_FEM.bin \
-$(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_ALICE_TL02_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL02_FEM.bin \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libee_core.so:system/vendor/lib/libee_core.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libee_support.so:system/vendor/lib/libee_support.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libexticonv.so:system/vendor/lib/libexticonv.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libposclientcore.so:system/vendor/lib/libposclientcore.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libslpgw-single.so:system/vendor/lib/libslpgw-single.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libstlport_shared_rtti.so:system/vendor/lib/libstlport_shared_rtti.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libsupl.so:system/vendor/lib/libsupl.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so \
-$(LOCAL_PATH)/proprietary/system/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so \
-$(LOCAL_PATH)/proprietary/system/vendor/framework/com.huawei.audioalgo.jar:system/vendor/framework/com.huawei.audioalgo.jar \
-$(LOCAL_PATH)/proprietary/system/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-$(LOCAL_PATH)/proprietary/system/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd \
-$(LOCAL_PATH)/proprietary/system/lib/cp_if.so:system/lib/cp_if.so \
-$(LOCAL_PATH)/proprietary/system/lib/imedia_filters.so:system/lib/imedia_filters.so \
-$(LOCAL_PATH)/proprietary/system/lib/lib_atprotocolsw.so:system/lib/lib_atprotocolsw.so \
-$(LOCAL_PATH)/proprietary/system/lib/lib_hwnsd_input.so:system/lib/lib_hwnsd_input.so \
-$(LOCAL_PATH)/proprietary/system/lib64/lib_hwnsd_input.so:system/lib64/lib_hwnsd_input.so \
-$(LOCAL_PATH)/proprietary/system/lib/libadc_old_sdk.so:system/lib/libadc_old_sdk.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaes.so:system/lib/libaes.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libaes.so:system/lib64/libaes.so \
-$(LOCAL_PATH)/proprietary/system/lib/libagnssal.so:system/lib/libagnssal.so \
-$(LOCAL_PATH)/proprietary/system/lib/libairsharing_platform.so:system/lib/libairsharing_platform.so \
-$(LOCAL_PATH)/proprietary/system/lib/libatpswdck.so:system/lib/libatpswdck.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudioalgoservice_jni.so:system/lib/libaudioalgoservice_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudio-resampler.so:system/lib/libaudio-resampler.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudioresampler.so:system/lib/libaudioresampler.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudiopolicymanager.so:system/lib/libaudiopolicymanager.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudiopolicymanagerdefault.so:system/lib/libaudiopolicymanagerdefault.so \
-$(LOCAL_PATH)/proprietary/system/lib/libaudioutils.so:system/lib/libaudioutils.so \
-$(LOCAL_PATH)/proprietary/system/lib/libavcodec.so:system/lib/libavcodec.so \
-$(LOCAL_PATH)/proprietary/system/lib/libavformat.so:system/lib/libavformat.so \
-$(LOCAL_PATH)/proprietary/system/lib/libavutil.so:system/lib/libavutil.so \
-$(LOCAL_PATH)/proprietary/system/lib/libBestShot.so:system/lib/libBestShot.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbreakpad.so:system/lib/libbreakpad.so \
-$(LOCAL_PATH)/proprietary/system/lib/libbspatchhwouc.so:system/lib/libbspatchhwouc.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcamera_omron.so:system/lib/libcamera_omron.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcamera_post_mediaserver.so:system/lib/libcamera_post_mediaserver.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcares.so:system/lib/libcares.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcgroup.so:system/lib/libcgroup.so \
-$(LOCAL_PATH)/proprietary/system/lib/libchrlog.so:system/lib/libchrlog.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libchrlog.so:system/lib64/libchrlog.so \
-$(LOCAL_PATH)/proprietary/system/lib/libcontactsmatchname.so:system/lib/libcontactsmatchname.so \
-$(LOCAL_PATH)/proprietary/system/lib/libevent.so:system/lib/libevent.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfb.so:system/lib/libfb.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfb_cpucapabilities.so:system/lib/libfb_cpucapabilities.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfb_creativeediting.so:system/lib/libfb_creativeediting.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfb_crypto.so:system/lib/libfb_crypto.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfb_dalvik-internals.so:system/lib/libfb_dalvik-internals.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfb_ffmpeg.so:system/lib/libfb_ffmpeg.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfb_ffmpeg_jni.so:system/lib/libfb_ffmpeg_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfm_interface.so:system/lib/libfm_interface.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfm_jni.so:system/lib/libfm_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib/libfm_volume.so:system/lib/libfm_volume.so \
-$(LOCAL_PATH)/proprietary/system/lib/libgnssadapter.so:system/lib/libgnssadapter.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libgnssadapter.so:system/lib64/libgnssadapter.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhardware_legacy_bcm.so:system/lib/libhardware_legacy_bcm.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhardware_legacy_hisi.so:system/lib/libhardware_legacy_hisi.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhelixplayer.so:system/lib/libhelixplayer.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhisi_efuse.so:system/lib/libhisi_efuse.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhisi_efuse.so:system/lib64/libhisi_efuse.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhisi_ini.so:system/lib/libhisi_ini.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libhisi_ini.so:system/lib64/libhisi_ini.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhuaweiaudioeffectutil.so:system/lib/libhuaweiaudioeffectutil.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhwdeviceinfo.so:system/lib/libhwdeviceinfo.so \
-$(LOCAL_PATH)/proprietary/system/lib/libhwextdevice.so:system/lib/libhwextdevice.so \
-$(LOCAL_PATH)/proprietary/system/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
-$(LOCAL_PATH)/proprietary/system/lib/libmax98925.so:system/lib/libmax98925.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libmax98925.so:system/lib64/libmax98925.so \
-$(LOCAL_PATH)/proprietary/system/lib/libmedia.so:system/lib/libmedia.so \
-$(LOCAL_PATH)/proprietary/system/lib/libmedia_jni.huawei.so:system/lib/libmedia_jni.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib/libmediarecorder.huawei.so:system/lib/libmediarecorder.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libmediarecorder.huawei.so:system/lib64/libmediarecorder.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so \
-$(LOCAL_PATH)/proprietary/system/lib/libnfc_nci_jni.so:system/lib/libnfc_nci_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib/libnfc-nci.so:system/lib/libnfc-nci.so \
-$(LOCAL_PATH)/proprietary/system/lib/liboeminfo.so:system/lib/liboeminfo.so \
-$(LOCAL_PATH)/proprietary/system/lib64/liboeminfo.so:system/lib64/liboeminfo.so \
-$(LOCAL_PATH)/proprietary/system/lib/libpowergenie_native3.so:system/lib/libpowergenie_native3.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libpowergenie_native3.so:system/lib64/libpowergenie_native3.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsensorsgps.so:system/lib/libsensorsgps.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsqlite3.so:system/lib/libsqlite3.so \
-$(LOCAL_PATH)/proprietary/system/lib/libstagefright.so:system/lib/libstagefright.so \
-$(LOCAL_PATH)/proprietary/system/lib/libstagefright.huawei.so:system/lib/libstagefright.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libstagefright.huawei.so:system/lib64/libstagefright.huawei.so \
-$(LOCAL_PATH)/proprietary/system/lib/libstagefright_foundation.so:system/lib/libstagefright_foundation.so \
-$(LOCAL_PATH)/proprietary/system/lib/libstagefright_soft_ffmpegaudiodec.so:system/lib/libstagefright_soft_ffmpegaudiodec.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libstagefright_soft_ffmpegaudiodec.so:system/lib64/libstagefright_soft_ffmpegaudiodec.so \
-$(LOCAL_PATH)/proprietary/system/lib/libstagefright_soft_ffmpegvideodec.so:system/lib/libstagefright_soft_ffmpegvideodec.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libstagefright_soft_ffmpegvideodec.so:system/lib64/libstagefright_soft_ffmpegvideodec.so \
-$(LOCAL_PATH)/proprietary/system/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libstagefrighthw.so:system/lib64/libstagefrighthw.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl10client.so:system/lib/libsupl10client.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20client.so:system/lib/libsupl20client.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20comon.so:system/lib/libsupl20comon.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20if.so:system/lib/libsupl20if.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1comn.so:system/lib/libsupl20oasn1comn.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1lpp.so:system/lib/libsupl20oasn1lpp.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1rrc.so:system/lib/libsupl20oasn1rrc.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1rrlp.so:system/lib/libsupl20oasn1rrlp.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1supl1.so:system/lib/libsupl20oasn1supl1.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1supl2.so:system/lib/libsupl20oasn1supl2.so \
-$(LOCAL_PATH)/proprietary/system/lib/libsupl20oasn1tia.so:system/lib/libsupl20oasn1tia.so \
-$(LOCAL_PATH)/proprietary/system/lib/libwifipro.so:system/lib/libwifipro.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libwifipro.so:system/lib64/libwifipro.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libagnssal.so:system/lib64/libagnssal.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libaudio_custom.so:system/lib64/libaudio_custom.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libaudioalgoservice_jni.so:system/lib64/libaudioalgoservice_jni.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libaudio-resampler.so:system/lib64/libaudio-resampler.so \
-$(LOCAL_PATH)/proprietary/system/lib64/libbastet.so:system/lib64/libbastet.so
-
+    $(LOCAL_PATH)/proprietary/system/etc/srs/srs_processing.cfg:system/etc/srs/srs_processing.cfg \
+    $(LOCAL_PATH)/proprietary/system/etc/srs/srsmodels.lic:system/etc/srs/srsmodels.lic \
+    $(LOCAL_PATH)/proprietary/system/etc/super_cpu_policy.xml:system/etc/super_cpu_policy.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/system_fonts.xml:system/etc/system_fonts.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/thermald.xml:system/etc/thermald.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/thermald_performance.xml:system/etc/thermald_performance.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/tp_test_parameters/alice_junda_input_format.csv:system/etc/tp_test_parameters/alice_junda_input_format.csv \
+    $(LOCAL_PATH)/proprietary/system/etc/tp_test_parameters/alice_ofilm_input_format.csv:system/etc/tp_test_parameters/alice_ofilm_input_format.csv \
+    $(LOCAL_PATH)/proprietary/system/etc/tp_test_parameters/alice_parameters.csv:system/etc/tp_test_parameters/alice_parameters.csv \
+    $(LOCAL_PATH)/proprietary/system/etc/tp_test_parameters/alice_truly_input_format.csv:system/etc/tp_test_parameters/alice_truly_input_format.csv \
+    $(LOCAL_PATH)/proprietary/system/etc/updatecmds/google_generic_update.txt:system/etc/updatecmds/google_generic_update.txt \
+    $(LOCAL_PATH)/proprietary/system/etc/virtualNets-conf.xml:system/etc/virtualNets-conf.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/voicemail-conf.xml:system/etc/voicemail-conf.xml \
+    $(LOCAL_PATH)/proprietary/system/etc/wifi/hostapd_hisi.conf:system/etc/wifi/hostapd_hisi.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/wifi/wpa_supplicant_hisi.conf:system/etc/wifi/wpa_supplicant_hisi.conf \
+    $(LOCAL_PATH)/proprietary/system/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/proprietary/system/vendor/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd:system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd:system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/GNSS.bin:system/vendor/firmware/GNSS.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/RECOVER_DATA.bin:system/vendor/firmware/RECOVER_DATA.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_CMP.bin:system/vendor/firmware/SDIO_CMP.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_COD.bin:system/vendor/firmware/SDIO_COD.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW.bin:system/vendor/firmware/SDIO_RW.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_ALICE_TL00_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL00_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_ALICE_TL02_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL02_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_ALICE_TL21_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL21_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_ALICE_TL23_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL23_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_ALICE_UL00_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_UL00_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_CHC_U03_FEM.bin:system/vendor/firmware/SDIO_RW_CHC_U03_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_CHM_TL00H_FEM.bin:system/vendor/firmware/SDIO_RW_CHM_TL00H_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_CHM_TL00_FEM.bin:system/vendor/firmware/SDIO_RW_CHM_TL00_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_CHM_U01_FEM.bin:system/vendor/firmware/SDIO_RW_CHM_U01_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_CHM_U23_FEM.bin:system/vendor/firmware/SDIO_RW_CHM_U23_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_CHM_UL00_FEM.bin:system/vendor/firmware/SDIO_RW_CHM_UL00_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_Certification_Alice_FEM.bin:system/vendor/firmware/SDIO_RW_Certification_Alice_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_RW_Certification_CHM_FEM.bin:system/vendor/firmware/SDIO_RW_Certification_CHM_FEM.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/SDIO_TBL.bin:system/vendor/firmware/SDIO_TBL.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/UART_CMP.bin:system/vendor/firmware/UART_CMP.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/UART_COD.bin:system/vendor/firmware/UART_COD.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/UART_RW.bin:system/vendor/firmware/UART_RW.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/UART_TBL.bin:system/vendor/firmware/UART_TBL.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_hw.bin:system/vendor/firmware/fw_bcm4343s_hw.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_p2p_hw.bin:system/vendor/firmware/fw_bcm4343s_p2p_hw.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin:system/vendor/firmware/fw_bcm4343s_test_hw_apsta.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/libpn547_fw.so:system/vendor/firmware/libpn547_fw.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram4343s_hw.txt:system/vendor/firmware/nvram4343s_hw.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram_CHERRY_PLUS_AS00.txt:system/vendor/firmware/nvram_CHERRY_PLUS_AS00.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram_CHERRY_PLUS_ED00.txt:system/vendor/firmware/nvram_CHERRY_PLUS_ED00.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram_CHERRY_PLUS_LD00.txt:system/vendor/firmware/nvram_CHERRY_PLUS_LD00.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram_CHERRY_PLUS_LS00.txt:system/vendor/firmware/nvram_CHERRY_PLUS_LS00.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram_CHERRY_PLUS_TL00.txt:system/vendor/firmware/nvram_CHERRY_PLUS_TL00.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram_CHERRY_PLUS_TL20M.txt:system/vendor/firmware/nvram_CHERRY_PLUS_TL20M.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/nvram_CHERRY_PLUS_UL00.txt:system/vendor/firmware/nvram_CHERRY_PLUS_UL00.txt \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/sdio_cfg:system/vendor/firmware/sdio_cfg \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/sdio_recover_cfg:system/vendor/firmware/sdio_recover_cfg \
+    $(LOCAL_PATH)/proprietary/system/vendor/firmware/uart_cfg:system/vendor/firmware/uart_cfg \
+    $(LOCAL_PATH)/proprietary/system/vendor/framework/com.huawei.audioalgo.jar:system/vendor/framework/com.huawei.audioalgo.jar \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/drm/libdrmwvmplugin.so.so:system/vendor/lib/drm/libdrmwvmplugin.so.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/drm/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/egl/libGLES_android.so:system/vendor/lib/egl/libGLES_android.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/egl/libGLES_mali.so:system/vendor/lib/egl/libGLES_mali.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libee_core.so:system/vendor/lib/libee_core.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libee_support.so:system/vendor/lib/libee_support.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libexticonv.so:system/vendor/lib/libexticonv.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libposclientcore.so:system/vendor/lib/libposclientcore.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libslpgw-single.so:system/vendor/lib/libslpgw-single.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libstlport_shared_rtti.so:system/vendor/lib/libstlport_shared_rtti.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libsupl.so:system/vendor/lib/libsupl.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so:system/vendor/lib/mediadrm/libdrmclearkeyplugin.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/mediadrm/libwvdrmengine.so:system/vendor/lib/mediadrm/libwvdrmengine.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib64/egl/libGLES_android.so:system/vendor/lib64/egl/libGLES_android.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib64/egl/libGLES_mali.so:system/vendor/lib64/egl/libGLES_mali.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib64/mediadrm/libdrmclearkeyplugin.so:system/vendor/lib64/mediadrm/libdrmclearkeyplugin.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    $(LOCAL_PATH)/proprietary/system/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/landmark_group_meta_data.bin:system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/landmark_group_meta_data.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/left_eye-y0-yi45-p0-pi45-r0-ri20.lg_32-tree7-wmd.bin:system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/left_eye-y0-yi45-p0-pi45-r0-ri20.lg_32-tree7-wmd.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/nose_base-y0-yi45-p0-pi45-r0-ri20.lg_32-tree7-wmd.bin:system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/nose_base-y0-yi45-p0-pi45-r0-ri20.lg_32-tree7-wmd.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/right_eye-y0-yi45-p0-pi45-r0-ri20.lg_32-3-tree7-wmd.bin:system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.8/right_eye-y0-yi45-p0-pi45-r0-ri20.lg_32-3-tree7-wmd.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/head-y0-yi45-p0-pi45-r0-ri30.4a-v24-tree7-2-wmd.bin:system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/head-y0-yi45-p0-pi45-r0-ri30.4a-v24-tree7-2-wmd.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/head-y0-yi45-p0-pi45-rn30-ri30.5-v24-tree7-2-wmd.bin:system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/head-y0-yi45-p0-pi45-rn30-ri30.5-v24-tree7-2-wmd.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/head-y0-yi45-p0-pi45-rp30-ri30.5-v24-tree7-2-wmd.bin:system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/head-y0-yi45-p0-pi45-rp30-ri30.5-v24-tree7-2-wmd.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/pose-r.8.1.bin:system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/pose-r.8.1.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/pose-y-r.8.1.bin:system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.7.1/pose-y-r.8.1.bin \
+    $(LOCAL_PATH)/proprietary/system/vendor/pittpatt/models/recognition/face.face.y0-y0-71-N-tree_7-wmd.bin:system/vendor/pittpatt/models/recognition/face.face.y0-y0-71-N-tree_7-wmd.bin
