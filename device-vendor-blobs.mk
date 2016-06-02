@@ -7,7 +7,9 @@ LOCAL_PATH := vendor/huawei/alice
 # bin files, overwrite the default builded ones
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/bin/mediaserver:system/bin/mediaserver \
+    $(LOCAL_PATH)/proprietary/system/bin/vdc:system/bin/vdc \
     $(LOCAL_PATH)/proprietary/system/bin/rild:system/bin/rild \
+    $(LOCAL_PATH)/proprietary/system/bin/dhcpcd:system/bin/dhcpcd \
     $(LOCAL_PATH)/proprietary/system/bin/sdcard:system/bin/sdcard
 	
 # bin files, for wifi bt etc. (init.connectivity.hi110x.rc)
@@ -21,13 +23,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
     $(LOCAL_PATH)/proprietary/system/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi \
     $(LOCAL_PATH)/proprietary/system/bin/hostapd_hisi:system/bin/hostapd_hisi \
-    $(LOCAL_PATH)/proprietary/system/bin/dhcpcd:system/bin/dhcpcd \
     $(LOCAL_PATH)/proprietary/system/bin/gnss_engine:system/bin/gnss_engine \
     $(LOCAL_PATH)/proprietary/system/bin/agnsscontrol:system/bin/agnsscontrol \
     $(LOCAL_PATH)/proprietary/system/bin/supl20clientd:system/bin/supl20clientd \
     $(LOCAL_PATH)/proprietary/system/bin/agnsslog:system/bin/agnsslog \
     $(LOCAL_PATH)/proprietary/system/xbin/watchlssd:system/xbin/watchlssd \
-    $(LOCAL_PATH)/proprietary/system/bin/mac_addr_normalization:system/bin/mac_addr_normalization
+    $(LOCAL_PATH)/proprietary/system/bin/mac_addr_normalization:system/bin/mac_addr_normalization \
+    $(LOCAL_PATH)/proprietary/system/bin/supl20clientd:system/bin/supl20clientd \
+    $(LOCAL_PATH)/proprietary/system/bin/wifiwakeupsrc:system/bin/wifiwakeupsrc \
+    $(LOCAL_PATH)/proprietary/system/bin/wl:system/bin/wl \
+    $(LOCAL_PATH)/proprietary/system/bin/wl_config:system/bin/wl_config \
+    $(LOCAL_PATH)/proprietary/system/bin/wpa_supplicant:system/bin/wpa_supplicant
 	
 # bin files, don't excist in the builded ones from omni
 PRODUCT_COPY_FILES += \
@@ -39,7 +45,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/bin/hwpged:system/bin/hwpged \
     $(LOCAL_PATH)/proprietary/system/bin/teecd:system/bin/teecd \
     $(LOCAL_PATH)/proprietary/system/bin/thermal-daemon:system/bin/thermal-daemon \
-    $(LOCAL_PATH)/proprietary/system/sbin/oeminfo_nvm_server:system/bin/oeminfo_nvm_server \
+    $(LOCAL_PATH)/proprietary/system/bin/oeminfo_nvm_server:system/bin/oeminfo_nvm_server \
     $(LOCAL_PATH)/proprietary/system/bin/abe89147-cd61-f43f-71c4-1a317e405312.sec:system/bin/abe89147-cd61-f43f-71c4-1a317e405312.sec \
     $(LOCAL_PATH)/proprietary/system/bin/afar:system/bin/afar \
     $(LOCAL_PATH)/proprietary/system/bin/agnsscontrol:system/bin/agnsscontrol \
@@ -84,14 +90,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/bin/shutdownanimation:system/bin/shutdownanimation \
     $(LOCAL_PATH)/proprietary/system/bin/sleeplogcat:system/bin/sleeplogcat \
     $(LOCAL_PATH)/proprietary/system/bin/start_110x_service.sh:system/bin/start_110x_service.sh \
-    $(LOCAL_PATH)/proprietary/system/bin/supl20clientd:system/bin/supl20clientd \
     $(LOCAL_PATH)/proprietary/system/bin/thermal-daemon:system/bin/thermal-daemon \
     $(LOCAL_PATH)/proprietary/system/bin/tlogcat:system/bin/tlogcat \
-    $(LOCAL_PATH)/proprietary/system/bin/usbshell:system/bin/usbshell \
-    $(LOCAL_PATH)/proprietary/system/bin/wifiwakeupsrc:system/bin/wifiwakeupsrc \
-    $(LOCAL_PATH)/proprietary/system/bin/wl:system/bin/wl \
-    $(LOCAL_PATH)/proprietary/system/bin/wl_config:system/bin/wl_config \
-    $(LOCAL_PATH)/proprietary/system/bin/wpa_supplicant:system/bin/wpa_supplicant
+    $(LOCAL_PATH)/proprietary/system/bin/usbshell:system/bin/usbshell
 
 # misc files
 PRODUCT_COPY_FILES += \
@@ -178,9 +179,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.hi6210sft.so:system/lib/hw/audio.primary.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/gps.hi110x.default.so:system/lib/hw/gps.hi110x.default.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.default.so:system/lib/hw/hwcomposer.default.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.hi6210sft.so:system/lib/hw/hwcomposer.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib/hw/keystore.default.so:/system/lib/hw/keystore.default.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/keystore.hi6210sft.so:system/lib/hw/keystore.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/libbcmfm_if.so:system/lib/hw/libbcmfm_if.so \
     $(LOCAL_PATH)/proprietary/system/lib/hw/libhisifm_if.so:system/lib/hw/libhisifm_if.so \
@@ -486,9 +489,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/camera.hi6210sft.so:system/lib64/hw/camera.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi110x.default.so:system/lib64/hw/gps.hi110x.default.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/gps.hi6210sft.so:system/lib64/hw/gps.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/gralloc.default.so:system/lib64/hw/gralloc.default.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/gralloc.hi6210sft.so:/system/lib64/hw/gralloc.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/hwcomposer.default.so:/system/lib64/hw/hwcomposer.default.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/hwcomposer.hi6210sft.so:/system/lib64/hw/hwcomposer.hi6210sft.so \
+    $(LOCAL_PATH)/proprietary/system/lib64/hw/keystore.default.so:/system/lib64/hw/keystore.default.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/keystore.hi6210sft.so:/system/lib64/hw/keystore.hi6210sft.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/libbcmfm_if.so:/system/lib64/hw/libbcmfm_if.so \
     $(LOCAL_PATH)/proprietary/system/lib64/hw/libhisifm_if.so:/system/lib64/hw/libhisifm_if.so \
@@ -925,8 +930,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/drm/libdrmwvmplugin.so.so:system/vendor/lib/drm/libdrmwvmplugin.so.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/drm/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so \
-    $(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
-    $(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/libee_core.so:system/vendor/lib/libee_core.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/libee_support.so:system/vendor/lib/libee_support.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/libexticonv.so:system/vendor/lib/libexticonv.so \
@@ -938,6 +941,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so:system/vendor/lib/mediadrm/libdrmclearkeyplugin.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib/mediadrm/libwvdrmengine.so:system/vendor/lib/mediadrm/libwvdrmengine.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
+    $(LOCAL_PATH)/proprietary/system/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so \
     $(LOCAL_PATH)/proprietary/system/vendor/lib64/mediadrm/libdrmclearkeyplugin.so:system/vendor/lib64/mediadrm/libdrmclearkeyplugin.so \
     $(LOCAL_PATH)/proprietary/system/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
